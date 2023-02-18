@@ -10,12 +10,7 @@ class Etudiant extends Model
     use HasFactory;
 
     protected $fillable = [
-        "nom",
-        "adresse",
-        "phone",
-        "email",
-        "dateDeNaissance",
-        "villeId",
+        "studentNumber",
     ];
 
     public function etudiantHasCity() {
