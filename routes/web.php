@@ -12,7 +12,7 @@ use App\Http\Controllers\CustomAuthController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
+*/
 
 Route::get('', [EtudiantController::class, 'index']);
 Route::get('/', [EtudiantController::class, 'index']);
@@ -38,3 +38,4 @@ Route::post('login', [CustomAuthController::class, 'authentication'])->name('use
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+Route::get('/blog/{blogPost}/PDF', [ActionPostController::class, 'showPdf']);
