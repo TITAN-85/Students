@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string("phone", 100);
             $table->date("dateDeNaissance", 255);
             $table->integer("villeId");
+            $table->integer("etudiantId");
             $table->timestamps();
         });
     }
