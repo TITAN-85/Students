@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Etudiant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Ville;
@@ -17,6 +18,8 @@ class UserFactory extends Factory
     public function definition()
     {
         $villesId = Ville::pluck('id')->toArray();
+//        $etudiantId = Etudiant::pluck('id')->toArray();
+//        TODO task: user(etudiant) magration
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -26,7 +29,8 @@ class UserFactory extends Factory
             'adresse' => $this->faker->streetAddress,
             'phone' => $this->faker->tollFreePhoneNumber,
             'dateDeNaissance' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
-            'villeId' => $this->faker->randomElement($villesId)
+            'villeId' => $this->faker->randomElement($villesId),
+            'etudiantId' => $this->faker->Etudiant::class()
         ];
     }
 

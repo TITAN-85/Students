@@ -19,6 +19,7 @@ class EtudiantController extends Controller
         // return view('etudiant.index', ['etudiants' => $etudiants]);
 
         $etudiants = Etudiant::select()->paginate(15);
+        dd($etudiants);
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }
 
@@ -46,7 +47,7 @@ class EtudiantController extends Controller
         $villes = Ville::all();
 
         return view('etudiant.edit', [
-            'etudiant' => $etudiant, 
+            'etudiant' => $etudiant,
             'villes' => $villes
         ]);
     }
@@ -118,6 +119,6 @@ class EtudiantController extends Controller
     }
 
 
-    
+
 
 }
