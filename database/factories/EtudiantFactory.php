@@ -15,7 +15,9 @@ class EtudiantFactory extends Factory
     {
 
         return [
-            'studentNumber' => $this->faker->randomNumber(10, true)
+//            'studentNumber' => $this->faker->randomNumber(10, true)
+            // 'studentNumber' => $this->faker->mt_getrandmax()(10, true)
+            'studentNumber' => $this->faker->numerify('##########')
         ];
     }
 }
