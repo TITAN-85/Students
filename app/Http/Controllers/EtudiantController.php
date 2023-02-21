@@ -6,6 +6,7 @@ use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class EtudiantController extends Controller
 {
@@ -18,7 +19,7 @@ class EtudiantController extends Controller
         // $etudiants = Etudiant::all();
         // return view('etudiant.index', ['etudiants' => $etudiants]);
 
-        $etudiants = Etudiant::select()->paginate(15);
+        $etudiants = User::select()->paginate(15);
         dd($etudiants);
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }
