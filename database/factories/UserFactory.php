@@ -17,7 +17,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $villesId = Ville::pluck('id')->toArray();
+        $villes_id = Ville::pluck('ville_id')->toArray();
 //        $etudiantId = Etudiant::pluck('id')->toArray();
 //        TODO task: user(etudiant) magration
         return [
@@ -28,9 +28,10 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'adresse' => $this->faker->streetAddress,
             'phone' => $this->faker->tollFreePhoneNumber,
-            'dateDeNaissance' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
-            'villeId' => $this->faker->randomElement($villesId),
-            'etudiantId' => $this->faker->Etudiant::class()
+            'birthday' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
+            'user_ville_id' => $this->faker->randomElement($villes_id),
+            'user_etudiant_id' => Etudiant::factory('etudiant_id')
+//            'etudiant_id' => Etudiant::factory()
         ];
     }
 
