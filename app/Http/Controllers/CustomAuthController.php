@@ -43,7 +43,7 @@ class CustomAuthController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:2|max:20'
+            'password' => 'required|min:6|max:20'
         ]);
 
         $user = new User;
@@ -51,9 +51,22 @@ class CustomAuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        
-        // return redirect()->back()->withSuccess(trans('lang.msg_1'));
-        return redirect()->back()->withSuccess(trans('User enregistré'));
+        $to_name = $request->name;
+        $to_email = $request->email;
+        $body = "<a href=''> Cliquer ici pour confirmer</a>";
+
+        Mail::send(
+            'email.mail',
+            $data = [
+                'name' => $to_email,
+                'body' => $body
+                    ],
+            function ($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)->subject('Courriel test laravel');
+            }
+        );
+
+        return redirect()->back()->withSuccess(trans('lang.msg_1'));
     }
 
     /**
@@ -99,5 +112,131 @@ class CustomAuthController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    /**
+     * authentication for user
+     *
+     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function authentication(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|min:2|max:20'
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (!Auth::validate($credentials)) :
+            return redirect(route('login'))
+                ->withErrors(trans('auth.failed'))
+                ->withInput();
+        endif;
+
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+        Auth::login($user, $request->get('remember'));
+
+        return redirect()->intended('dashboard')->withSuccess('Signed in');
+    }
+
+
+    public function dashboard()
+    {
+        $name = 'Guest';
+        $auth = Auth::user();
+
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+
+            return view(
+                'layouts.dashboard',
+
+                ['name' => $name],
+                ['auth' => $auth]
+            );
+        }
+        return redirect(route('login'))->withErrors(trans('auth.failed'));
+    }
+
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return redirect(route('login'));
+    }
+
+
+    public function forgotPassword()
+    {
+        return view('auth.forgot-password');
+    }
+
+
+
+    public function tempPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
+
+        $user = User::where('email', $request->email)->get();
+        $user = $user[0];
+        $tempPass = str::random(25);
+        $user->temp_password = $tempPass;
+        $user->save();
+        $userId = $user->id;
+
+        $link = "<a href='/new-password/" . $userId . "/" . $tempPass . "'>Cliquez ici pour réinitialiser votre mot de passe</a>";
+
+        dd($user);
+
+        $to_email - $user->email;
+        $to_name - $user->name;
+
+        Mail::send(
+            'email.mail',
+            $data = [
+                'name' => $to_name,
+                'body' => $link
+
+            ],
+            function ($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)->subject('Reset password');
+            }
+        );
+        return redirect()->back()->withSuccess(trans('check your email to change your password'));
+    }
+
+
+    public function newPassword(User $user, $tempPassword)
+    {
+        if ($user->temp_password === $tempPassword) {
+            return view('auth.new-password');
+        }
+
+        // return $user;
+        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
+    }
+
+
+    public function storeNewPassword(User $user, $tempPassword, Request $request)
+    {
+        if ($user->temp_password === $tempPassword) {
+            $request->validate([
+                'password' => 'required|min:6|confirmer'
+            ]);
+            $user->temp_password = null;
+            $user->password = Hash . make($request->password);
+            $user->save();
+            return redirect(route('login')->withSuccess('lang.msg_success'));
+        }
+
+        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas');
     }
 }
