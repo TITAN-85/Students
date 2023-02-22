@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `etudiants` (
-  `etudiant_id` bigint UNSIGNED NOT NULL,
-  `etudiant_nr` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
+  `number` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -38,7 +38,7 @@ CREATE TABLE `etudiants` (
 -- Dumping data for table `etudiants`
 --
 
-INSERT INTO `etudiants` (`etudiant_id`, `etudiant_nr`, `created_at`, `updated_at`) VALUES
+INSERT INTO `etudiants` (`id`, `number`, `created_at`, `updated_at`) VALUES
 (1, '8827300325', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
 (2, '8106030799', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
 (3, '4775632567', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
@@ -73,7 +73,7 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `forums` (
-  `forum_id` bigint UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title_fr` varchar(191) COLLATE utf8mb4_unicode_ci ,
   `article` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `forums` (
 -- Dumping data for table `forums`
 --
 
-INSERT INTO `forums` (`forum_id`, `title`, `title_fr`, `article`, `article_fr`, `forum_user_id`, `forum_etudiant_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `forums` (`id`, `title`, `title_fr`, `article`, `article_fr`, `forum_user_id`, `forum_etudiant_id`, `created_at`, `updated_at`) VALUES
 (1, 'Natalie Ritchie', 'Alexandrine Littel', 'If they had to.', 'Cat. \'--so.', 11, 22, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
 (2, 'Obie Trantow', 'Prof. Rashad Harvey II', 'I think?\' \'I.', 'Dormouse; \'--well.', 12, 24, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
 (3, 'Antoinette D\'Amore', 'Savanna Robel DDS', 'Was kindly.', 'Majesty,\' said.', 13, 26, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
@@ -162,7 +162,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `users` (
-  `user_id` bigint UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -181,7 +181,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `adresse`, `phone`, `birthday`, `user_ville_id`, `user_etudiant_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `adresse`, `phone`, `birthday`, `user_ville_id`, `user_etudiant_id`, `created_at`, `updated_at`) VALUES
 (1, 'Buck Halvorson', 'elmore.king@example.net', '2023-02-21 21:50:42', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'KVc6uneUnO', '1886 Schultz Haven', '1-866-903-6071', '1991-05-11', 9, 11, '2023-02-21 21:50:42', '2023-02-21 21:50:42'),
 (2, 'Miss Estel Runolfsdottir', 'hill.tierra@example.com', '2023-02-21 21:50:42', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '9hMuc37ZR0', '22027 Corkery Course', '(844) 714-8615', '1929-06-12', 6, 12, '2023-02-21 21:50:42', '2023-02-21 21:50:42'),
 (3, 'Prof. Saige Hackett', 'kwelch@example.net', '2023-02-21 21:50:42', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '4rGUFALede', '711 Morissette Glen Apt. 429', '888.303.8765', '1940-06-09', 6, 13, '2023-02-21 21:50:42', '2023-02-21 21:50:42'),
@@ -200,7 +200,7 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `email_verified_at`, `password`
 --
 
 CREATE TABLE `villes` (
-  `ville_id` bigint UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -210,7 +210,7 @@ CREATE TABLE `villes` (
 -- Dumping data for table `villes`
 --
 
-INSERT INTO `villes` (`ville_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `villes` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Treutelview', '2023-02-21 21:50:12', '2023-02-21 21:50:12'),
 (2, 'Johnstontown', '2023-02-21 21:50:12', '2023-02-21 21:50:12'),
 (3, 'East Newton', '2023-02-21 21:50:12', '2023-02-21 21:50:12'),
@@ -269,14 +269,14 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- Indexes for table `villes`
 --
 ALTER TABLE `villes`
-  ADD PRIMARY KEY (`ville_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -316,13 +316,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `villes`
 --
 ALTER TABLE `villes`
-  MODIFY `ville_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

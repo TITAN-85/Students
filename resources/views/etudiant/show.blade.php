@@ -35,7 +35,7 @@
                     Effacer l'etudiant
                 </button>
 
-                <a href="{{ route('etudiant.edit', $etudiant->user_id)}}" class="btn btn-success">Mettre a jour</a>
+                <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="btn btn-success">Mettre a jour</a>
             </div>
             <div class="col-6">
             </div>
@@ -58,7 +58,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non. Retourner</button>
                     <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 
-                    <form action="{{ route('etudiant.edit', $etudiant->user_id) }}" method="POST">
+                    <form action="{{ route('etudiant.edit', $etudiant->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <input type="submit" value="Oui. Effacer" class="btn btn-danger">

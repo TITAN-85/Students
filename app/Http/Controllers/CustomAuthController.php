@@ -42,7 +42,7 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email'=> 'required|email|unique:users',
             'password' => 'required|min:6|max:20'
         ]);
 
@@ -53,20 +53,20 @@ class CustomAuthController extends Controller
 
         $to_name = $request->name;
         $to_email = $request->email;
-        $body = "<a href=''> Cliquer ici pour confirmer</a>";
+        $body="<a href=''>Cliquez ici pour confirmer</a>";
 
-        Mail::send(
-            'email.mail',
-            $data = [
-                'name' => $to_email,
-                'body' => $body
-                    ],
-            function ($message) use ($to_name, $to_email) {
+        Mail::send('email.mail', $data = [
+            'name' => $to_name,
+            'body' => $body
+        ],
+            function($message) use ($to_name, $to_email){
                 $message->to($to_email, $to_name)->subject('Courriel test laravel');
             }
         );
 
-        return redirect()->back()->withSuccess(trans('lang.msg_1'));
+//        return redirect()->back()->withSuccess(trans('lang.msg_1'));
+        return redirect()->back()->withSuccess('todo-lang.msg_1');
+
     }
 
     /**
@@ -146,20 +146,21 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-        $name = 'Guest';
-        $auth = Auth::user();
+//        $name = 'Guest';
+//        $auth = Auth::user();
 
         if (Auth::check()) {
-            $name = Auth::user()->name;
-
-            return view(
-                'layouts.dashboard',
-
-                ['name' => $name],
-                ['auth' => $auth]
-            );
+//            $name = Auth::user()->name;
+            return view('dashboard');
+//            return view(
+//                'layouts.dashboard',
+//
+//                ['name' => $name],
+//                ['auth' => $auth]
+//            );
         }
-        return redirect(route('login'))->withErrors(trans('auth.failed'));
+//        return redirect(route('login'))->withErrors(trans('auth.failed'));
+        return redirect(route('login'))->withErrors('Vous n\'êtes pas autorisé à accéder');
     }
 
 
@@ -192,12 +193,13 @@ class CustomAuthController extends Controller
         $user->save();
         $userId = $user->id;
 
-        $link = "<a href='/new-password/" . $userId . "/" . $tempPass . "'>Cliquez ici pour réinitialiser votre mot de passe</a>";
+//        $link = "<a href='/new-password/" . $userId . "/" . $tempPass . "'>Cliquez ici pour réinitialiser votre mot de passe</a>";
+        $link = "<a href='http://localhost:8000/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
 
-        dd($user);
+//        dd($user);
 
-        $to_email - $user->email;
-        $to_name - $user->name;
+        $to_email = $user->email;
+        $to_name = $user->name;
 
         Mail::send(
             'email.mail',
@@ -210,33 +212,33 @@ class CustomAuthController extends Controller
                 $message->to($to_email, $to_name)->subject('Reset password');
             }
         );
-        return redirect()->back()->withSuccess(trans('check your email to change your password'));
+//        return redirect()->back()->withSuccess(trans('check your email to change your password'));
+        return redirect()->back()->withSuccess('Check your email to change your password');
     }
 
 
-    public function newPassword(User $user, $tempPassword)
-    {
+    public function newPassword(User $user, $tempPassword){
         if ($user->temp_password === $tempPassword) {
-            return view('auth.new-password');
+            return view ('auth.new-password');
         }
-
-        // return $user;
-        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas ');
+        return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas');
     }
 
 
-    public function storeNewPassword(User $user, $tempPassword, Request $request)
-    {
+    public function storeNewPassword(User $user, $tempPassword, Request $request){
         if ($user->temp_password === $tempPassword) {
             $request->validate([
-                'password' => 'required|min:6|confirmer'
+                'password' => 'required|min:6|confirmed'
             ]);
-            $user->temp_password = null;
-            $user->password = Hash . make($request->password);
-            $user->save();
-            return redirect(route('login')->withSuccess('lang.msg_success'));
-        }
 
+            $user->temp_password = null;
+            $user->password = Hash::make($request->password);
+            $user->save();
+//            return redirect(route('login'))->withSuccess(trans('lang.msg_success'));
+            return redirect(route('login'))->withSuccess('todo-lang.msg_success');
+            //return redirect(route('login'))->withSuccess('mot de passe reinitialisé');
+
+        }
         return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas');
     }
 }

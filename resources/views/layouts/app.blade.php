@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name')}} : @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
 
-
         <!-- Background image -->
-        <div class="p-5 text-center bg-image" style="
-      background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
-      height: 400px;
-    ">
+        <div class="p-5 text-center bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+                height: 400px;">
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); min-height: 185px;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-white">
@@ -31,29 +30,46 @@
         <!-- Background image -->
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        @php $locale = session()->get('locale'); @endphp
+        <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                <a class="navbar-brand" href="#">Hello @if(Auth::check()) {{Auth::user()->name }} @else Guest @endif</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarExample01">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="{{ route('etudiant.index') }}">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('etudiant.create')}}">Ajouter un etudiant</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Nous Joindre</a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">A propos de nous</a>
-                        </li> -->
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        @guest
+                            <a class="nav-link" href="{{route('user.create')}}">Registration</a>
+                            <a class="nav-link" href="{{route('login')}}">Login</a>
+                        @else
+                            <a class="nav-link" href="{{route('etudiant.index')}}">Articles</a>
+                            <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                        @endguest
+{{--                        <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>--}}
+{{--                        <a class="nav-link @if($locale == 'fr')  bg-secondary  @endif" href="{{route('lang', 'fr')}}" href="{{route('lang', 'fr')}}">Fr<i class="flag flag-france"></i></a>--}}
+
+                    </div>
                 </div>
             </div>
         </nav>
+{{--        <nav class="navbar navbar-expand-lg navbar-light bg-white">--}}
+{{--            <div class="container-fluid">--}}
+{{--                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">--}}
+{{--                    <i class="fas fa-bars"></i>--}}
+{{--                </button>--}}
+{{--                <div class="collapse navbar-collapse" id="navbarExample01">--}}
+{{--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">--}}
+{{--                        <li class="nav-item active">--}}
+{{--                            <a class="nav-link" aria-current="page" href="{{ route('etudiant.index') }}">Accueil</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ route('etudiant.create')}}">Ajouter un etudiant</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </nav>--}}
         <!-- Navbar -->
     </header>
 

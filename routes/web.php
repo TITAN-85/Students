@@ -37,5 +37,10 @@ Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('login', [CustomAuthController::class, 'authentication'])->name('user.auth');
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 
+Route::get('forgot-password', [CustomAuthController::class, 'forgotPassword'])->name('forgot.pass');
+Route::post('forgot-password', [CustomAuthController::class, 'tempPassword'])->name('temp.pass');
+Route::get('new-password/{user}/{tempPassword}', [CustomAuthController::class, 'newPassword'])->name('new.pass');
+Route::post('new-password/{user}/{tempPassword}', [CustomAuthController::class, 'storeNewPassword'])->name('store.pass');
+
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
-Route::get('/blog/{blogPost}/PDF', [ActionPostController::class, 'showPdf']);
+//<FIXME> Route::get('/blog/{blogPost}/PDF', [ActionPostController????::class, 'showPdf']);
