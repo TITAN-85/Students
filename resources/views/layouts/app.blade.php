@@ -43,7 +43,8 @@
                             <a class="nav-link" href="{{route('user.create')}}">Registration</a>
                             <a class="nav-link" href="{{route('login')}}">Login</a>
                         @else
-                            <a class="nav-link" href="{{route('etudiant.index')}}">Articles</a>
+                            <a class="nav-link" href="{{route('etudiant.index')}}">Students</a>
+                            <a class="nav-link" href="{{route('forum.show')}}">Forum</a>
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>
                         @endguest
                         <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>

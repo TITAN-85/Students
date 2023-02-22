@@ -13,9 +13,4 @@ return [
     'msg_success' => 'Mot de passe modifié avec succès',
     'back' => 'Retourner',
     'submit' => 'Soumettre',
-    'name' => 'Nom',
-    'email' => 'Courriel',
-    'password' => 'Mot de Pass',
-
-
 ];

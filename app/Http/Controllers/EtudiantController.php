@@ -10,11 +10,11 @@ use App\Models\User;
 
 class EtudiantController extends Controller
 {
-        /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function index() {
         // $etudiants = User::all();
         // return view('etudiant.index', ['etudiants' => $etudiants]);

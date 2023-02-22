@@ -48,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userHasCity() {
+        return $this->hasOne('App\Models\Ville', 'id', 'user_ville_id');
+    }
+
+    public function userHasEtudiant() {
+        return $this->hasOne('App\Models\Ville', 'id', 'user_etudiant_id');
+    }
 }

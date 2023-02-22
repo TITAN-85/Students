@@ -2,8 +2,6 @@
 @section('title', 'Dashboard')
 @section('content')
 
-    dashboard
-
     <br>
 {{--    {{$auth}}--}}
 

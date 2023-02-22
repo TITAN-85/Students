@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\ForumController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +50,6 @@ Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('la
 
 // Dashboard
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+
+// Forum
+Route::get('etudiant/forum', [ForumController::class, 'index'])->name('forum.show');

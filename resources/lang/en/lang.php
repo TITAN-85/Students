@@ -13,8 +13,4 @@ return [
     'msg_success' => 'Password was resete',
     'back' => 'Back',
     'submit' => 'Submit',
-    'name' => 'Name',
-    'email' => 'Email',
-    'password' => 'Password',
-
 ];
