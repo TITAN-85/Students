@@ -30,7 +30,7 @@
                             <ul>
                                 @forelse ($etudiants as $etudiant)
                                 <li class="d-grid btn btn-outline-dark">
-                                    <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->id)}}">{{ $etudiant->nom }}</a>
+                                    <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->user_id)}}">{{ $etudiant->name }}</a>
                                 </li>
                                 @empty
                                 <li class="text-danger"> Rien </li>

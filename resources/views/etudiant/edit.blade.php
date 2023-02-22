@@ -25,7 +25,7 @@
                 @csrf
                 @method('put')
                 <div class="card-header">
-                    Formulaire de l'etudiant : <strong>{{$etudiant->nom}}</strong>
+                    Formulaire de l'etudiant : <strong>{{$etudiant->name}}</strong>
                 </div>
 
                 <div class="card-body">
@@ -33,7 +33,7 @@
 
                     <div class="control-group col-12">
                         <label for="etudiantNom">Name</label>
-                        <input type="text" value="{{$etudiant->nom}}" name="etudiantNom" id="etudiantNom" class="form-control">
+                        <input type="text" value="{{$etudiant->name}}" name="etudiantNom" id="etudiantNom" class="form-control">
                     </div>
                     <div class="control-group col-12">
                         <label for="etudiantAdresse">Adress</label>
@@ -50,12 +50,12 @@
 
                     <div class="control-group col-12">
                         <label for="etudiantDateDeNaissance">Birthday</label>
-                        <input type="text" value="{{$etudiant->dateDeNaissance}}" name="etudiantDateDeNaissance" id="etudiantDateDeNaissance" class="form-control">
+                        <input type="text" value="{{$etudiant->birthday}}" name="etudiantDateDeNaissance" id="etudiantDateDeNaissance" class="form-control">
                     </div>
 
                     <select name="etudiantVille" id="" class="control-group col-12">
                         @foreach ($villes as $ville)
-                        <option value="{{$ville->id}}">{{$ville->nom}}</option>
+                        <option value="{{$ville->ville_id}}">{{$ville->name}}</option>
                         @endforeach
                     </select>
 

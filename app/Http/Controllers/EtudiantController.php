@@ -16,11 +16,11 @@ class EtudiantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        // $etudiants = Etudiant::all();
+        // $etudiants = User::all();
         // return view('etudiant.index', ['etudiants' => $etudiants]);
 
         $etudiants = User::select()->paginate(15);
-        dd($etudiants);
+//        dd($etudiants);
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }
 
@@ -31,9 +31,9 @@ class EtudiantController extends Controller
      * @param  \App\Models\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function show(Etudiant $etudiant)
+    public function show(User $etudiant)
     {
-
+        dd($etudiant);
         return view("etudiant.show", ["etudiant" => $etudiant]);
     }
 
@@ -43,13 +43,13 @@ class EtudiantController extends Controller
      * @param  \App\Models\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Etudiant $etudiant) {
+    public function edit(User $etudiant) {
 
         $villes = Ville::all();
 
         return view('etudiant.edit', [
             'etudiant' => $etudiant,
-            'villes' => $villes
+            'villes'   => $villes
         ]);
     }
 
@@ -60,7 +60,7 @@ class EtudiantController extends Controller
      * @param  \App\Models\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Etudiant $etudiant)
+    public function update(Request $request, User $etudiant)
     {
         $etudiant->update([
             "nom"             =>  $request->etudiantNom,
@@ -80,7 +80,7 @@ class EtudiantController extends Controller
      * @param  \App\Models\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Etudiant $etudiant)
+    public function destroy(User $etudiant)
     {
         $etudiant->delete();
         return redirect(route('etudiant.index'));
@@ -108,7 +108,7 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        $newEtudiant = Etudiant::create([
+        $newEtudiant = User::create([
             "nom"             =>  $request->etudiantNom,
             "adresse"         =>  $request->etudiantAdresse,
             "phone"           =>  $request->etudiantPhone,
