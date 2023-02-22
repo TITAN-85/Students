@@ -21,6 +21,7 @@ class EtudiantController extends Controller
 
         $etudiants = User::select()->paginate(15);
 //        dd($etudiants);
+
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }
 

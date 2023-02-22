@@ -8,7 +8,7 @@
                 <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>
                 <div class="row">
                     <div class="col-7">
-                        <p>Etudiants du colege Maisonneuve.</p>
+                        <h3>Forum</h3>
                     </div>
                     <div class="col-4">
 {{--                        <a href="{{ route('etudiant.create')}}" class="btn btn-outline-primary">Ajouter un article</a>--}}
@@ -21,7 +21,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-8">
                 <div class="card">
-                    <div class="card-header">Liste des etudiants</div>
+                    <div class="card-header">Liste des article</div>
                     <div class="card-body">
                         <div class="row mb-5 justify-content-center">
                             <div class="col-6 ">
@@ -36,7 +36,7 @@
                                     Les articles sont ici
                                 </ul>
                                 <div class="justify-content-center">
-                                    {{ $etudiants }}
+{{--                                    {{ $etudiants }}--}}
                                 </div>
                             </div>
                         </div>

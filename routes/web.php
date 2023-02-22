@@ -52,4 +52,4 @@ Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('la
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
 
 // Forum
-Route::get('etudiant/forum', [ForumController::class, 'index'])->name('forum.show');
+Route::get('/edudiant/forum', [ForumController::class, 'index'])->name('forum.index');
