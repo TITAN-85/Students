@@ -64,8 +64,8 @@ class CustomAuthController extends Controller
             }
         );
 
-//        return redirect()->back()->withSuccess(trans('lang.msg_1'));
-        return redirect()->back()->withSuccess('todo-lang.msg_1');
+        return redirect()->back()->withSuccess(trans('lang.msg_1'));
+//        return redirect()->back()->withSuccess('todo-lang.msg_1');
 
     }
 
@@ -160,6 +160,7 @@ class CustomAuthController extends Controller
 //            );
         }
 //        return redirect(route('login'))->withErrors(trans('auth.failed'));
+//        return redirect(route('login'))->withErrors(trans('auth.failed'));
         return redirect(route('login'))->withErrors('Vous n\'êtes pas autorisé à accéder');
     }
 
@@ -234,9 +235,8 @@ class CustomAuthController extends Controller
             $user->temp_password = null;
             $user->password = Hash::make($request->password);
             $user->save();
-//            return redirect(route('login'))->withSuccess(trans('lang.msg_success'));
-            return redirect(route('login'))->withSuccess('todo-lang.msg_success');
-            //return redirect(route('login'))->withSuccess('mot de passe reinitialisé');
+            return redirect(route('login'))->withSuccess(trans('lang.msg_success'));
+//            return redirect(route('login'))->withSuccess('todo-lang.msg_success');
 
         }
         return redirect('forgot-password')->withErrors('Les identifiants ne correspondent pas');

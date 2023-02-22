@@ -46,8 +46,8 @@
                             <a class="nav-link" href="{{route('etudiant.index')}}">Articles</a>
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>
                         @endguest
-{{--                        <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>--}}
-{{--                        <a class="nav-link @if($locale == 'fr')  bg-secondary  @endif" href="{{route('lang', 'fr')}}" href="{{route('lang', 'fr')}}">Fr<i class="flag flag-france"></i></a>--}}
+                        <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>
+                        <a class="nav-link @if($locale == 'fr')  bg-secondary  @endif" href="{{route('lang', 'fr')}}" href="{{route('lang', 'fr')}}">Fr<i class="flag flag-france"></i></a>
 
                     </div>
                 </div>

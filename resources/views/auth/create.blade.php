@@ -9,11 +9,11 @@
             <div class="col-md-4 pt-4">
                 <div class="card">
                     <h3 class="card-header">
-                        Sign up
+                        @lang('lang.sign_up')
                     </h3>
                     <div class="col-12 text-center mt-2">
 
-                        <a href="{{ route('etudiant.index') }}" class="btn btn-outline-primary">Back</a>
+                        <a href="{{ route('etudiant.index') }}" class="btn btn-outline-primary">@lang('lang.back') </a>
                     </div>
 
                     <div class="card-body">
@@ -30,7 +30,7 @@
                         <form action="{{ route('user.store')}}" method="post">
                             @csrf
                             <div class="form-group mb-3">
-                                <input class="form-control" type="text" name="name" id="" placeholder="Name" value="{{ old('name') }}">
+                                <input class="form-control" type="text" name="name" id="" placeholder="@lang('lang.name')" value="{{ old('name') }}">
                                 @if($errors->has('name'))
                                 <div class="text-danger mt-2">
                                     {{$errors->first('name')}}
@@ -38,7 +38,7 @@
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input class="form-control" type="email" name="email" id="" placeholder="email" value="{{ old('email') }}">
+                                <input class="form-control" type="email" name="email" id="" placeholder="@lang('lang.email')" value="{{ old('email') }}">
                                 @if($errors->has('email'))
                                 <div class="text-danger mt-2">
                                     {{$errors->first('email')}}
@@ -46,7 +46,7 @@
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input class="form-control" type="password" name="password" id="" placeholder="password" value="">
+                                <input class="form-control" type="password" name="password" id="" placeholder="@lang('lang.password')" value="">
                                 @if($errors->has('password'))
                                 <div class="text-danger mt-2">
                                     {{$errors->first('password')}}
@@ -54,7 +54,7 @@
                                 @endif
                             </div>
                             <div class="d-grid mx-auto">
-                                <input class="btn btn-success" type="submit" value="Submit">
+                                <input class="btn btn-success" type="submit" value=" @lang('lang.submit') ">
                             </div>
                         </form>
                     </div>
