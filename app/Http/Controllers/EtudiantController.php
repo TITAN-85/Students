@@ -33,7 +33,8 @@ class EtudiantController extends Controller
      */
     public function show(User $etudiant)
     {
-        dd($etudiant);
+        $test = User::select();
+        dd($test);
         return view("etudiant.show", ["etudiant" => $etudiant]);
     }
 
@@ -70,7 +71,7 @@ class EtudiantController extends Controller
             "dateDeNaissance" =>  $request->etudiantDateDeNaissance,
             "villeId"         =>  $request->etudiantVille
         ]);
-        return redirect(route('etudiant.show', $etudiant->id));
+        return redirect(route('etudiant.show', $etudiant->user_id));
     }
 
 
@@ -116,7 +117,7 @@ class EtudiantController extends Controller
             "dateDeNaissance" =>  $request->etudiantDateDeNaissance,
             "villeId"         =>  $request->etudiantVille
         ]);
-        return redirect(route('etudiant.show', $newEtudiant->id));
+        return redirect(route('etudiant.show', $newEtudiant->user_id));
     }
 
 
