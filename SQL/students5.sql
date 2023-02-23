@@ -26,14 +26,14 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `categorie`
 --
-
+Create database students;
 CREATE TABLE `categorie` (
-  `id` int NOT NULL,
-  `categorie` varchar(45) NOT NULL,
-  `categorie_fr` varchar(45) DEFAULT NULL,
-  `categorie_ru` varchar(45) DEFAULT NULL,
-  `categorie_ro` varchar(45) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                             `id` bigint UNSIGNED NOT NULL,
+                             `categorie` varchar(45) NOT NULL,
+                             `categorie_fr` varchar(45) DEFAULT NULL,
+                             `categorie_ru` varchar(45) DEFAULT NULL,
+                             `categorie_ro` varchar(45) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -42,10 +42,10 @@ CREATE TABLE `categorie` (
 --
 
 CREATE TABLE `etudiants` (
-  `id` bigint UNSIGNED NOT NULL,
-  `number` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+                             `id` bigint UNSIGNED NOT NULL,
+                             `number` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `created_at` timestamp NULL DEFAULT NULL,
+                             `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -53,16 +53,16 @@ CREATE TABLE `etudiants` (
 --
 
 INSERT INTO `etudiants` (`id`, `number`, `created_at`, `updated_at`) VALUES
-(1, '8827300325', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(2, '8106030799', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(3, '4775632567', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(4, '8311202589', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(5, '4880165864', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(6, '4829354120', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(7, '5765033984', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(8, '6706465380', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(9, '8979285437', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
-(10, '5633142411', '2023-02-21 21:50:21', '2023-02-21 21:50:21');
+                                                                         (1, '8827300325', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (2, '8106030799', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (3, '4775632567', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (4, '8311202589', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (5, '4880165864', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (6, '4829354120', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (7, '5765033984', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (8, '6706465380', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (9, '8979285437', '2023-02-21 21:50:21', '2023-02-21 21:50:21'),
+                                                                         (10, '5633142411', '2023-02-21 21:50:21', '2023-02-21 21:50:21');
 
 -- --------------------------------------------------------
 
@@ -71,13 +71,13 @@ INSERT INTO `etudiants` (`id`, `number`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `failed_jobs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+                               `id` bigint UNSIGNED NOT NULL,
+                               `uuid` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                               `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -87,15 +87,15 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `forums` (
-  `id` bigint UNSIGNED NOT NULL,
-  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_fr` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `article` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `article_fr` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `forum_user_id` int DEFAULT NULL,
-  `forum_etudiant_id` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+                          `id` bigint UNSIGNED NOT NULL,
+                          `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                          `title_fr` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                          `article` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                          `article_fr` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+                          `forum_user_id` int DEFAULT NULL,
+                          `forum_etudiant_id` int DEFAULT NULL,
+                          `created_at` timestamp NULL DEFAULT NULL,
+                          `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -103,8 +103,8 @@ CREATE TABLE `forums` (
 --
 
 INSERT INTO `forums` (`id`, `title`, `title_fr`, `article`, `article_fr`, `forum_user_id`, `forum_etudiant_id`, `created_at`, `updated_at`) VALUES
-(1, 'Natalie Ritchie', 'Alexandrine Littel', 'If they had to.', 'Cat. \'--so.', 11, 22, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
-(2, 'Obie Trantow', 'Prof. Rashad Harvey II', 'I think?\' \'I.', 'Dormouse; \'--well.', 12, 24, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
+    (1, 'Natalie Ritchie', 'Alexandrine Littel', 'If they had to.', 'Cat. \'--so.', 11, 22, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
+        (2, 'Obie Trantow', 'Prof. Rashad Harvey II', 'I think?\' \'I.', 'Dormouse; \'--well.', 12, 24, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
 (3, 'Antoinette D\'Amore', 'Savanna Robel DDS', 'Was kindly.', 'Majesty,\' said.', 13, 26, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
 (4, 'Elwin Luettgen', 'Troy Wolff V', 'I to get an.', 'What happened to.', 14, 28, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
 (5, 'Evie Satterfield', 'Harold Weber', 'Oh, how I wish.', 'I don\'t want to.', 15, 30, '2023-02-21 21:52:15', '2023-02-21 21:52:15'),
