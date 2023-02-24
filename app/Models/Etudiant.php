@@ -10,13 +10,15 @@ class Etudiant extends Model
     use HasFactory;
 
     protected $fillable = [
-        "etudiant_nr",
+        "number",
     ];
 
-    public function etudiantHasCity() {
-        return $this->hasOne('App\Models\Ville', 'id', 'villeId');
-    }
-
+//    public function etudiantHasCity() {
+//        return $this->hasOne('App\Models\Ville', 'id', 'user_ville_id');
+//    }
+//    public function studentHasNumber() {
+//        return $this->hasOne('App\Models\Etudiant', 'id', 'user_ville_id');
+//    }
 
     // public function selectUser() {
     //     return $this->select(DB::raw('concat(firstname, " ", lastName) as name'))

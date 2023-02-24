@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
@@ -18,9 +19,14 @@ class EtudiantController extends Controller
     public function index() {
         // $etudiants = User::all();
         // return view('etudiant.index', ['etudiants' => $etudiants]);
-
+//        $userLoggedIn = Auth::user()->id;
         $etudiants = User::select()->paginate(15);
-//        dd($etudiants);
+
+//        $studentNumber = Etudiant::select()
+//            ->where($userLoggedIn, "=", "etudiant.id")
+//            ->get();
+//
+//        dd($studentNumber);
 
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }

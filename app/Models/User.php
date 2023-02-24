@@ -26,8 +26,8 @@ class User extends Authenticatable
         "phone",
         "email",
         "birthday",
-        "user_ville_Id",
-        "user_etudiant_Id",
+        "user_ville_id",
+        "user_etudiant_id",
     ];
 
     /**
@@ -56,4 +56,5 @@ class User extends Authenticatable
     public function userHasEtudiant() {
         return $this->hasOne('App\Models\Ville', 'id', 'user_etudiant_id');
     }
+
 }

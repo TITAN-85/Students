@@ -31,14 +31,17 @@
                         <label for="etudiantNom">Name</label>
                         <input type="text" value="" name="etudiantNom" id="etudiantNom" class="form-control">
                     </div>
+
                     <div class="control-group col-12">
                         <label for="etudiantAdresse">Adress</label>
                         <input type="text" value="" name="etudiantAdresse" id="etudiantAdresse" class="form-control">
                     </div>
+
                     <div class="control-group col-12">
                         <label for="etudiantPhone">Phone number</label>
                         <input type="text" value="" name="etudiantPhone" id="etudiantPhone" class="form-control">
                     </div>
+
                     <div class="control-group col-12">
                         <label for="etudiantEmail">email</label>
                         <input type="text" value="" name="etudiantEmail" id="etudiantEmail" class="form-control">

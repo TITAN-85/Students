@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\Forum;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -21,9 +22,32 @@ class ForumController extends Controller
 //        $articles = Forum::all();
 //        $users = User::all();
 //        select * from forums inner JOIN users on forums.forum_user_id = users.id;
+
+//          select * from forums
+//          left JOIN  users on
+//          forums.forum_user_id = users.id
+//          left JOIN  etudiants on
+//          etudiants.id = users.user_etudiant_id
+
+;
         $articles = Forum::select()
-                 ->join("users", "forum_user_id", "=", "users.id")
+                 ->leftjoin("users", "forum_user_id", "=", "users.id")
+                 ->rightjoin("etudiants", "etudiants.id", "=", "users.user_etudiant_id")
                  ->get();
+
+//        $articles = User::select()
+//            ->leftjoin("forums", "users.id", "=",  "forum_user_id")
+//            ->join("etudiants", "users.id", "=", "user_etudiant_id")
+//            ->get();
+
+        $etudiant = Etudiant::all();
+//        dd($etudiant);
+
+//        $articles = User::select()
+//            ->rightjoin("forums", "forum_user_id", "=", "users.id")
+//            ->get();
+
+//        dd($usersForum);
 //        return $articles;
 //        dd($articles);
 //        $user = User::select('id')->get();
@@ -36,6 +60,7 @@ class ForumController extends Controller
         return view('forum.index', [
                                         'articles' => $articles,
                                         'userConnected' => $userConnected
+//                                        'articleId' => $articleId
                                         ]);
     }
 
@@ -77,37 +102,9 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
-        return $forum;
-//        $articles = Forum::select()
-//            ->join("users", "forum_user_id", "=", "users.id")
-//            ->get();
-//        dd($forum);
-
-//        "id" => 3
-//        "title" => "Antoinette D'Amore"
-//        "title_fr" => "Savanna Robel DDS"
-//        "article" => "Was kindly."
-//        "article_fr" => "Majesty,' said."
-//        "forum_user_id" => 3
-//        "created_at" => "2023-02-21 16:52:15"
-//        "updated_at" => "2023-02-21 16:52:15"
 
         $user = User::select()->where("id", "=", $forum->id )->get();
-//        "id" => 5
-//        "name" => "Raoul Dibbert"
-//        "email" => "jared.klein@example.net"
-//        "email_verified_at" => "2023-02-21 16:50:42"
-//        "password" => "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi"
-//        "remember_token" => "vq7C98wbn5"
-//        "adresse" => "268 Satterfield Field Suite 889"
-//        "phone" => "844.603.0155"
-//        "birthday" => "1982-02-15"
-//        "user_ville_id" => 9
-//        "user_etudiant_id" => 5
-//        "created_at" => "2023-02-21 16:50:42"
-//        "updated_at" => "2023-02-21 16:50:42"
-//        "temp_password" => null
-        dd($forum);
+//        dd($forum);
         return view( 'forum.show', ['article' => $forum, 'user' => $user]);
     }
 
@@ -119,10 +116,10 @@ class ForumController extends Controller
      */
     public function edit(Forum $forum)
     {
-//        return view('etudiant.edit', [
-//            'etudiant' => $etudiant,
-//            'villes'   => $villes
-//        ]);
+//        dd($forum);
+        return view('forum.edit', [
+            'article' => $forum
+        ]);
     }
 
     /**
@@ -134,7 +131,14 @@ class ForumController extends Controller
      */
     public function update(Request $request, Forum $forum)
     {
-        //
+        $forum->update([
+            "title"             =>  $request->titleForumEn,
+            "title_fr"          =>  $request->titleForumFr,
+            "article"           =>  $request->ArticleForumEn,
+            "article_fr"        =>  $request->ArticleForumFr,
+            "forum_user_id"     =>  $request->forum_user_id
+        ]);
+        return redirect(route('forum.show', $forum->id));
     }
 
     /**

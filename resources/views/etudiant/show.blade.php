@@ -15,7 +15,7 @@
             <p><strong>Email:</strong> {{ $etudiant->email }}</p>
             <p><strong>Birthday:</strong> {{ $etudiant->birthday }}</p>
 
-{{--            <p><strong>City:</strong> {{ $etudiant->etudiantHasCity->nom }}</p>--}}
+            <p><strong>City:</strong> {{ $etudiant->userHasCity->name }}</p>
 
             <hr>
             <p>{{$etudiant->created_at}}</p>

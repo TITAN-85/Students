@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,9 @@ class CustomAuthController extends Controller
      */
     public function create()
     {
-        return view('auth.create');
+        $villes = Ville::all();
+//        dd($villes);
+        return view('auth.create', ['villes' => $villes]);
     }
 
     /**
@@ -40,16 +43,26 @@ class CustomAuthController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $request->validate([
             'name' => 'required',
             'email'=> 'required|email|unique:users',
-            'password' => 'required|min:6|max:20'
+            'password' => 'required|min:6|max:20',
+            'adresse' => 'required',
+            'phone' => 'required',
+            'birthday' => 'required',
+            'user_ville_id' => 'required',
+            'user_etudiant_id' => '',
         ]);
+
+//        dd($request);
 
         $user = new User;
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
+
+//        User::create(['user_ville_id' => $request->user_ville_id]);
 
         $to_name = $request->name;
         $to_email = $request->email;
@@ -65,7 +78,6 @@ class CustomAuthController extends Controller
         );
 
         return redirect()->back()->withSuccess(trans('lang.msg_1'));
-//        return redirect()->back()->withSuccess('todo-lang.msg_1');
 
     }
 

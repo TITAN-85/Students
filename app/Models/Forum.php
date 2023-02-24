@@ -16,4 +16,9 @@ class Forum extends Model
         "article_fr",
         "forum_user_id",
     ];
+
+    public function studentHasNumber() {
+        return $this->hasOne('App\Models\Etudiant', 'id', 'user_etudiant_id');
+//        return $this->belongsTo(Etudiant::class);
+    }
 }

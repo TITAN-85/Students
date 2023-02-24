@@ -8,7 +8,7 @@
 
 <!-- Forum Detail -->
                 <div class="inner-main-body p-2 p-sm-3  forum-content">
-                    <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                    <a href="{{ route('forum.index')}}" class="btn btn-light btn-sm mb-3 has-icon" data-toggle="collapse" data-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
                     <div class="card mb-2">
                         <div class="card-body">
                             <div class="media forum-item">

@@ -25,43 +25,32 @@
                 @csrf
                 @method('put')
                 <div class="card-header">
-                    Mon article <strong>{{$etudiant->name}}</strong>
+{{--                    Mon article <strong>{{$article->name}}</strong>--}}
                 </div>
 
                 <div class="card-body">
 
 
                     <div class="control-group col-12">
-                        <label for="etudiantNom">Name</label>
-                        <input type="text" value="{{$etudiant->name}}" name="etudiantNom" id="etudiantNom" class="form-control">
+                        <label for="titleForumEn">@lang('lang.title_forum') En</label>
+                        <input type="text" class="form-control" id="titleForumEn" name="titleForumEn" value="{{$article->title}}"/>
                     </div>
-                    <div class="control-group col-12">
-                        <label for="etudiantAdresse">Adress</label>
-                        <input type="text" value="{{$etudiant->adresse}}" name="etudiantAdresse" id="etudiantAdresse" class="form-control">
-                    </div>
-                    <div class="control-group col-12">
-                        <label for="etudiantPhone">Phone number</label>
-                        <input type="text" value="{{$etudiant->phone}}" name="etudiantPhone" id="etudiantPhone" class="form-control">
-                    </div>
-                    <div class="control-group col-12">
-                        <label for="etudiantEmail">email</label>
-                        <input type="text" value="{{$etudiant->email}}" name="etudiantEmail" id="etudiantEmail" class="form-control">
+                    <div class="form-group">
+                        <label for="titleForumFr">@lang('lang.title_forum') Fr</label>
+                        <input type="text" class="form-control" id="titleForumFr" name="titleForumFr" value="{{$article->title_fr}}" />
                     </div>
 
-                    <div class="control-group col-12">
-                        <label for="etudiantDateDeNaissance">Birthday</label>
-                        <input type="text" value="{{$etudiant->birthday}}" name="etudiantDateDeNaissance" id="etudiantDateDeNaissance" class="form-control">
-                    </div>
+                    <label for="ArticleForumEn">Article En</label>
+                    <textarea id="ArticleForumEn" name="ArticleForumEn" class="form-control summernote" > {{$article->article}} </textarea>
 
-                    <select name="etudiantVille" id="" class="control-group col-12">
-                        @foreach ($villes as $ville)
-                        <option value="{{$ville->ville_id}}">{{$ville->name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="ArticleForumFr">Article Fr</label>
+                    <textarea id="ArticleForumFr" name="ArticleForumFr" class="form-control summernote" > {{$article->article_fr}} </textarea>
+
+                    <input type="hidden" class="form-control" name="forum_user_id" value="{{$article->forum_user_id}}" />
 
                 </div>
                 <div class="card-footer">
-                    <input type="submit" value="Envoye" name="saveArticle" id="saveArticle" class="btn btn-success">
+                    <input type="submit" value="@lang('lang.send')" name="saveArticle" id="saveArticle" class="btn btn-success">
                 </div>
 
             </form>

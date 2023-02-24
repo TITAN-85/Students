@@ -18,9 +18,9 @@
 
                     <div class="card-body">
                         @if(@session('success'))
-                        <!-- <div class="alert alert-success"> -->
-                        <!-- {{-- session('success') --}} -->
-                        <!-- </div> -->
+{{--                         <div class="alert alert-success">--}}
+{{--                             session('success') --}}
+{{--                         </div>--}}
 
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Holy guacamole! {{session('success')}}</strong>
@@ -29,6 +29,8 @@
                         @endif
                         <form action="{{ route('user.store')}}" method="post">
                             @csrf
+
+{{--                            NAME--}}
                             <div class="form-group mb-3">
                                 <input class="form-control" type="text" name="name" id="" placeholder="@lang('lang.name')" value="{{ old('name') }}">
                                 @if($errors->has('name'))
@@ -37,6 +39,9 @@
                                 </div>
                                 @endif
                             </div>
+
+
+{{--                            EMAIL--}}
                             <div class="form-group mb-3">
                                 <input class="form-control" type="email" name="email" id="" placeholder="@lang('lang.email')" value="{{ old('email') }}">
                                 @if($errors->has('email'))
@@ -45,6 +50,9 @@
                                 </div>
                                 @endif
                             </div>
+
+
+{{--                            PASSWORD--}}
                             <div class="form-group mb-3">
                                 <input class="form-control" type="password" name="password" id="" placeholder="@lang('lang.password')" value="">
                                 @if($errors->has('password'))
@@ -53,6 +61,52 @@
                                 </div>
                                 @endif
                             </div>
+
+{{--                            ADRESS--}}
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="adresse" id="" placeholder="@lang('lang.adress')" value="{{ old('name') }}">
+                                @if($errors->has('name'))
+                                    <div class="text-danger mt-2">
+                                        {{$errors->first('name')}}
+                                    </div>
+                                @endif
+                            </div>
+
+{{--                            PHONE--}}
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="text" name="phone" id="" placeholder="@lang('lang.phone')" value="{{ old('name') }}">
+                                @if($errors->has('name'))
+                                    <div class="text-danger mt-2">
+                                        {{$errors->first('name')}}
+                                    </div>
+                                @endif
+                            </div>
+
+{{--                            BIRTHDAY--}}
+                            <div class="form-group mb-3">
+                                <input class="form-control" type="date" name="birthday" id="" placeholder="@lang('lang.birthday')" value="{{ old('name') }}">
+                                @if($errors->has('name'))
+                                    <div class="text-danger mt-2">
+                                        {{$errors->first('name')}}
+                                    </div>
+                                @endif
+                            </div>
+
+{{--                            CITY--}}
+                            <select name="user_ville_id" id="" class="control-group col-12">
+                                @foreach ($villes as $ville)
+                                    <option value="{{$ville->id}}">{{$ville->name}}</option>
+                                @endforeach
+                            </select>
+
+                            {{--                            ETUDIANTE?--}}
+                            <div  class="form-check">
+                                <label class="form-check-label" for="flexCheckChecked">Etudiant?
+                                    <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="user_etudiant_id">
+                                </label>
+                            </div>
+
+
                             <div class="d-grid mx-auto">
                                 <input class="btn btn-success" type="submit" value=" @lang('lang.submit') ">
                             </div>
