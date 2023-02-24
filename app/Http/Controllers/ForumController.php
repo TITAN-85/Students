@@ -6,6 +6,7 @@ use App\Models\Forum;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+
 class ForumController extends Controller
 {
     /**
@@ -15,9 +16,18 @@ class ForumController extends Controller
      */
     public function index()
     {
-//        $test = User::select();
-//        dd($test);
-        return view('forum.index');
+//        $articles = Forum::select();
+//        $articles = Forum::all();
+//        $users = User::all();
+//        select * from forums inner JOIN users on forums.forum_user_id = users.id;
+        $articles = Forum::select()
+                 ->join("users", "forum_user_id", "=", "users.id")
+                 ->get();
+//        dd($articles);
+
+//        dd($articles);
+//        var_dump($articles);
+        return view('forum.index', ['articles' => $articles]);
     }
 
     /**
@@ -49,7 +59,37 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
-        //
+//        $articles = Forum::select()
+//            ->join("users", "forum_user_id", "=", "users.id")
+//            ->get();
+//        dd($forum);
+
+//        "id" => 3
+//        "title" => "Antoinette D'Amore"
+//        "title_fr" => "Savanna Robel DDS"
+//        "article" => "Was kindly."
+//        "article_fr" => "Majesty,' said."
+//        "forum_user_id" => 3
+//        "created_at" => "2023-02-21 16:52:15"
+//        "updated_at" => "2023-02-21 16:52:15"
+
+        $user = User::select()->where("id", "=", $forum->id )->get();
+//        "id" => 5
+//        "name" => "Raoul Dibbert"
+//        "email" => "jared.klein@example.net"
+//        "email_verified_at" => "2023-02-21 16:50:42"
+//        "password" => "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi"
+//        "remember_token" => "vq7C98wbn5"
+//        "adresse" => "268 Satterfield Field Suite 889"
+//        "phone" => "844.603.0155"
+//        "birthday" => "1982-02-15"
+//        "user_ville_id" => 9
+//        "user_etudiant_id" => 5
+//        "created_at" => "2023-02-21 16:50:42"
+//        "updated_at" => "2023-02-21 16:50:42"
+//        "temp_password" => null
+//        dd($user);
+        return view( 'forum.show', ['article' => $forum, 'user' => $user]);
     }
 
     /**
