@@ -13,4 +13,7 @@ return [
     'msg_success' => 'Mot de passe modifié avec succès',
     'back' => 'Retourner',
     'submit' => 'Soumettre',
+    'title_forum_placeholder' => 'Entrer titre ici',
+    'forum_article' => 'Entrer article ici',
+    'title_forum' => 'Titre',
 ];

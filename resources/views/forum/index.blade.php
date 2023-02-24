@@ -2,145 +2,41 @@
 @section('title', 'Etudiants List')
 @section('content')
 
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col-12 text-center pt-5">--}}
-{{--                <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-7">--}}
-{{--                        <h3>Forum</h3>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-4">--}}
-{{--                        <a href="{{ route('etudiant.create')}}" class="btn btn-outline-primary">Ajouter un article</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-
-{{--        <div class="row mb-5 justify-content-center">--}}
-{{--            <div class="col-8">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-header">Liste des article</div>--}}
-{{--                    <div class="card-body">--}}
-{{--                        <div class="row mb-5 justify-content-center">--}}
-{{--                            <div class="col-6 ">--}}
-{{--                                <ul>--}}
-{{--                                    @forelse ($etudiants as $etudiant)--}}
-{{--                                        <li class="d-grid btn btn-outline-dark">--}}
-{{--                                            <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->id)}}">{{ $etudiant->name }}</a>--}}
-{{--                                        </li>--}}
-{{--                                    @empty--}}
-{{--                                        <li class="text-danger"> Rien </li>--}}
-{{--                                    @endforelse--}}
-{{--                                    Les articles sont ici--}}
-{{--                                </ul>--}}
-{{--                                <div class="justify-content-center">--}}
-{{--                                    {{ $etudiants }}--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-
-{{--    </div>--}}
-
-
-
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/forum.css')}}">
     <div class="container">
         <div class="main-body p-0">
             <div class="inner-wrapper">
-                <!-- Inner sidebar -->
-{{--                <div class="inner-sidebar">--}}
-                    <!-- Inner sidebar header -->
-{{--                    <div class="inner-sidebar-header justify-content-center">--}}
-{{--                        <button class="btn btn-primary has-icon btn-block" type="button" data-toggle="modal" data-target="#threadModal">--}}
-{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">--}}
-{{--                                <line x1="12" y1="5" x2="12" y2="19"></line>--}}
-{{--                                <line x1="5" y1="12" x2="19" y2="12"></line>--}}
-{{--                            </svg>--}}
-{{--                            NEW DISCUSSION--}}
-{{--                        </button>--}}
-{{--                    </div>--}}
-                    <!-- /Inner sidebar header -->
-
-{{--                    <!-- Inner sidebar body -->--}}
-{{--                    <div class="inner-sidebar-body p-0">--}}
-{{--                        <div class="p-3 h-100" data-simplebar="init">--}}
-{{--                            <div class="simplebar-wrapper" style="margin: -16px;">--}}
-{{--                                <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div>--}}
-{{--                                <div class="simplebar-mask">--}}
-{{--                                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">--}}
-{{--                                        <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">--}}
-{{--                                            <div class="simplebar-content" style="padding: 16px;">--}}
-{{--                                                <nav class="nav nav-pills nav-gap-y-1 flex-column">--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon active">All Threads</a>--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Popular this week</a>--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Popular all time</a>--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Solved</a>--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">Unsolved</a>--}}
-{{--                                                    <a href="javascript:void(0)" class="nav-link nav-link-faded has-icon">No replies yet</a>--}}
-{{--                                                </nav>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="simplebar-placeholder" style="width: 234px; height: 292px;"></div>--}}
-{{--                            </div>--}}
-{{--                            <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>--}}
-{{--                            <div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 151px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <!-- /Inner sidebar body -->--}}
-{{--                </div>--}}
-                <!-- /Inner sidebar -->
 
                 <!-- Inner main -->
                 <div class="inner-main">
-                    <!-- Inner main header -->
-{{--                    <div class="inner-main-header">--}}
-{{--                        <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>--}}
-{{--                        <select class="custom-select custom-select-sm w-auto mr-1">--}}
-{{--                            <option selected="">Latest</option>--}}
-{{--                            <option value="1">Popular</option>--}}
-{{--                            <option value="3">Solved</option>--}}
-{{--                            <option value="3">Unsolved</option>--}}
-{{--                            <option value="3">No Replies Yet</option>--}}
-{{--                        </select>--}}
-{{--                        <span class="input-icon input-icon-sm ml-auto w-auto">--}}
-{{--                    <input type="text" class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4" placeholder="Search forum" />--}}
-{{--                </span>--}}
-{{--                    </div>--}}
-                    <!-- /Inner main header -->
                     <!-- New Thread Modal -->
                     <div class="p-2 p-sm-3" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-                                <form>
+                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">
+                                    @csrf
                                     <div class="modal-body" style="padding: 20px; ">
                                         <div class="form-group">
-                                            <label for="threadTitle">Title</label>
-                                            <input type="text" class="form-control" id="threadTitle" placeholder="Enter title" autofocus="" />
+                                            <label for="titleForumEn">@lang('lang.title_forum') En</label>
+                                            <input type="text" class="form-control" id="titleForumEn" name="titleForumEn" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
                                         </div>
 
-                                        <label for="userArticle">Title</label>
-                                        <textarea id="userArticle" class="form-control summernote"  ></textarea>
+                                        <div class="form-group">
+                                            <label for="titleForumFr">@lang('lang.title_forum') Fr</label>
+                                            <input type="text" class="form-control" id="titleForumFr" name="titleForumFr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
+                                        </div>
 
-{{--                                        <div class="custom-file form-control-sm mt-3" style="max-width: 300px;">--}}
-{{--                                            <input type="file" class="custom-file-input" id="customFile" multiple="" />--}}
-{{--                                            <label class="custom-file-label" for="customFile">Attachment</label>--}}
-{{--                                        </div>--}}
-                                    </div>
-                                    <div class="modal-footer" style="padding: 20px; ">
-{{--                                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>--}}
-                                        <button type="button" class="btn btn-primary">Post</button>
+                                        <label for="ArticleForumEn">Article En</label>
+                                        <textarea id="ArticleForumEn" name="ArticleForumEn" class="form-control summernote"  >@lang('lang.forum_article')</textarea>
+
+                                        <label for="ArticleForumFr">Article Fr</label>
+                                        <textarea id="ArticleForumFr" name="ArticleForumFr" class="form-control summernote"  >@lang('lang.forum_article')</textarea>
+
+                                        <div class="card-footer">
+                                            <input type="submit" value="Envoye" name="$newArticle" id="saveArticle" class="btn btn-success">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -177,8 +73,10 @@
                         <div class="card mb-2">
                             <div class="card-body p-2 p-sm-3">
                                 <div class="media forum-item">
-{{--                                    <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->id)}}">{{ $etudiant->name }}</a>--}}
-                                    <a href="{{ route('forum.show', $article->id) }}" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                                    @if(Auth::user()->id == $article->forum_user_id)
+                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>
+                                    @endif
                                     <div class="media-body">
                                         <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>
                                         <p class="text-secondary">

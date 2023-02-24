@@ -66,13 +66,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non. Retourner</button>
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+{{--                        <button type="button" class="btn btn-primary">Save changes</button>--}}
 
-{{--                        <form action="{{ route('etudiant.edit', $etudiant->id) }}" method="POST">--}}
+                        <form action="{{ route('forum.edit', $article->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <input type="submit" value="Oui. Effacer" class="btn btn-danger">
-{{--                        </form>--}}
+                        </form>
 
                     </div>
                 </div>

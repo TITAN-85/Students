@@ -56,7 +56,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non. Retourner</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 
                     <form action="{{ route('etudiant.edit', $etudiant->id) }}" method="POST">
                         @csrf

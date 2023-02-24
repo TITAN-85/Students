@@ -13,4 +13,8 @@ return [
     'msg_success' => 'Password was resete',
     'back' => 'Back',
     'submit' => 'Submit',
+    'title_forum_placeholder' => 'Enter title here',
+    'forum_article' => 'Enter article here',
+    'title_forum' => 'Title',
+
 ];

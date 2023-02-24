@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Forum;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class ForumController extends Controller
@@ -23,11 +24,19 @@ class ForumController extends Controller
         $articles = Forum::select()
                  ->join("users", "forum_user_id", "=", "users.id")
                  ->get();
+//        return $articles;
 //        dd($articles);
+//        $user = User::select('id')->get();
+//        dd($user);
+            $userConnected = Auth::user()->id;
+//            dd($userConnected);
 
 //        dd($articles);
 //        var_dump($articles);
-        return view('forum.index', ['articles' => $articles]);
+        return view('forum.index', [
+                                        'articles' => $articles,
+                                        'userConnected' => $userConnected
+                                        ]);
     }
 
     /**
@@ -37,7 +46,7 @@ class ForumController extends Controller
      */
     public function create()
     {
-//        return view('forum.index');
+//        return view('forum.create');
     }
 
     /**
@@ -48,7 +57,16 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+//        return $request;
+        $newArticle = Forum::create([
+            "title"             =>  $request->titleForumEn,
+            "title_fr"          =>  $request->titleForumFr,
+            "article"           =>  $request->ArticleForumEn,
+            "article_fr"        =>  $request->ArticleForumFr,
+            "forum_user_id"     =>  $request->userConnected
+        ]);
+        return redirect(route('forum.index'));
     }
 
     /**
@@ -59,6 +77,7 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
+        return $forum;
 //        $articles = Forum::select()
 //            ->join("users", "forum_user_id", "=", "users.id")
 //            ->get();
@@ -88,7 +107,7 @@ class ForumController extends Controller
 //        "created_at" => "2023-02-21 16:50:42"
 //        "updated_at" => "2023-02-21 16:50:42"
 //        "temp_password" => null
-//        dd($user);
+        dd($forum);
         return view( 'forum.show', ['article' => $forum, 'user' => $user]);
     }
 
@@ -100,7 +119,10 @@ class ForumController extends Controller
      */
     public function edit(Forum $forum)
     {
-        //
+//        return view('etudiant.edit', [
+//            'etudiant' => $etudiant,
+//            'villes'   => $villes
+//        ]);
     }
 
     /**
@@ -123,6 +145,7 @@ class ForumController extends Controller
      */
     public function destroy(Forum $forum)
     {
-        //
+        $forum->delete();
+        return redirect(route('forum.index'));
     }
 }

@@ -54,10 +54,10 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashb
 // Forum
 Route::get('forum', [ForumController::class, 'index'])->name('forum.index');
 Route::get('forum/{forum}', [ForumController::class, 'show'])->name('forum.show');
-Route::get('forum-edit/{forum}', [EtudiantController::class, 'edit'])->name('forum.edit');
-Route::put('forum-edit/{forum}', [EtudiantController::class, 'update']);
+Route::get('forum-edit/{forum}', [ForumController::class, 'edit'])->name('forum.edit');
+Route::put('forum-edit/{forum}', [ForumController::class, 'update']);
 
-Route::delete('forum-edit/{forum}', [EtudiantController::class, 'destroy']);
+Route::delete('forum-edit/{forum}', [ForumController::class, 'destroy']);
 
-Route::get('forum-create', [EtudiantController::class, 'create'])->name('forum.create');
-Route::post('/forum-create', [EtudiantController::class, 'store']);
+//Route::get('forum-create', [ForumController::class, 'create'])->name('forum.create');
+Route::post('/forum-create', [ForumController::class, 'store'])->name('forum.store');
