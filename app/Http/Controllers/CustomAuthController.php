@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\User;
 use App\Models\Ville;
 use Illuminate\Http\Request;
@@ -43,6 +44,16 @@ class CustomAuthController extends Controller
      */
     public function store(Request $request)
     {
+        $randomNumber = '';
+
+//        if ($request->user_etudiant_id){
+//
+//        }
+        for ($i = 0; $i < 10; $i++ ) {
+            $randomNumber .= rand(0, 10);
+        }
+//        dd($request);
+
 //        dd($request);
         $request->validate([
             'name' => 'required',
@@ -52,15 +63,24 @@ class CustomAuthController extends Controller
             'phone' => 'required',
             'birthday' => 'required',
             'user_ville_id' => 'required',
-            'user_etudiant_id' => '',
+//            'user_etudiant_id' => $randomNumber,
         ]);
 
 //        dd($request);
+        $etudiant = Etudiant::create([
+            'number' => $randomNumber
+        ]);
+//        dd($etudiant);
 
         $user = new User;
         $user->fill($request->all());
+
+        $user->user_etudiant_id = $etudiant->id;
+//        dd($user);
+
         $user->password = Hash::make($request->password);
         $user->save();
+
 
 //        User::create(['user_ville_id' => $request->user_ville_id]);
 

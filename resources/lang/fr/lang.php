@@ -20,4 +20,6 @@ return [
     'title_forum_placeholder' => 'Entrer titre ici',
     'forum_article' => 'Entrer article ici',
     'title_forum' => 'Titre',
+    'closed_forum' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
+
 ];

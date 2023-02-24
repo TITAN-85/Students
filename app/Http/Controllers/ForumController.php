@@ -19,7 +19,7 @@ class ForumController extends Controller
     public function index()
     {
 //        $articles = Forum::select();
-//        $articles = Forum::all();
+
 //        $users = User::all();
 //        select * from forums inner JOIN users on forums.forum_user_id = users.id;
 
@@ -30,17 +30,19 @@ class ForumController extends Controller
 //          etudiants.id = users.user_etudiant_id
 
 ;
-        $articles = Forum::select()
-                 ->leftjoin("users", "forum_user_id", "=", "users.id")
-                 ->rightjoin("etudiants", "etudiants.id", "=", "users.user_etudiant_id")
-                 ->get();
-
+//        $articles = Forum::select()
+//                 ->leftjoin("users", "forum_user_id", "=", "users.id")
+//                 ->rightjoin("etudiants", "etudiants.id", "=", "users.user_etudiant_id")
+//                 ->rightjoin("forums",  "forum_user_id", "=", "users.id")
+//                 ->get();
+//        $forumId = Forum::select('id')->get();
+//        $articles = $forumId;
+//        dd($articles);
 //        $articles = User::select()
 //            ->leftjoin("forums", "users.id", "=",  "forum_user_id")
 //            ->join("etudiants", "users.id", "=", "user_etudiant_id")
 //            ->get();
 
-        $etudiant = Etudiant::all();
 //        dd($etudiant);
 
 //        $articles = User::select()
@@ -52,15 +54,16 @@ class ForumController extends Controller
 //        dd($articles);
 //        $user = User::select('id')->get();
 //        dd($user);
-            $userConnected = Auth::user()->id;
-//            dd($userConnected);
 
-//        dd($articles);
-//        var_dump($articles);
+
+        $articles = Forum::all();
+        $etudiant = Etudiant::all();
+        $userConnected = Auth::user()->id;
+//        dd($etudiant);
         return view('forum.index', [
                                         'articles' => $articles,
-                                        'userConnected' => $userConnected
-//                                        'articleId' => $articleId
+                                        'userConnected' => $userConnected,
+                                        'etudiant' => $etudiant
                                         ]);
     }
 

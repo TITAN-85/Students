@@ -2,6 +2,9 @@
 @section('title', 'Etudiants List')
 @section('content')
 
+{{--if--}}
+{{--etudiant--}}
+@if(Auth::user()->user_etudiant_id)
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/forum.css')}}">
@@ -102,5 +105,28 @@
 
         </div>
     </div>
+@else
+    <div class="container">
+        <div class="main-body p-0">
+            <div class="inner-wrapper">
 
+
+                <!-- Inner main -->
+                <div class="inner-main">
+                    <!-- New Thread Modal -->
+                    <div class="p-2 p-sm-3" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div>
+                                    <h2>
+                                        @lang('lang.closed_forum')
+                                    </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
 @endsection

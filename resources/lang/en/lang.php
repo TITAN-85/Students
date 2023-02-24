@@ -20,5 +20,5 @@ return [
     'title_forum_placeholder' => 'Enter title here',
     'forum_article' => 'Enter article here',
     'title_forum' => 'Title',
-
+    'closed_forum' => 'If you are not a student, The Forum is closed..',
 ];
