@@ -59,5 +59,9 @@ Route::put('forum-edit/{forum}', [ForumController::class, 'update']);
 
 Route::delete('forum-edit/{forum}', [ForumController::class, 'destroy']);
 
-//Route::get('forum-create', [ForumController::class, 'create'])->name('forum.create');
 Route::post('/forum-create', [ForumController::class, 'store'])->name('forum.store');
+
+// REPERTOIRE
+Route::get('repertoire', [ForumController::class, 'index'])->name('repertoire.index');
+
+
