@@ -21,5 +21,6 @@ return [
     'forum_article' => 'Entrer article ici',
     'title_forum' => 'Titre',
     'closed_forum' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
+    'directory' => 'Répertoire',
 
 ];

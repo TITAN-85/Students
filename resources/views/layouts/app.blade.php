@@ -46,6 +46,7 @@
                         @else
                             <a class="nav-link" href="{{route('etudiant.index')}}">Students</a>
                             <a class="nav-link" href="{{route('forum.index')}}">Forum</a>
+                            <a class="nav-link" href="{{route('repertoire.index')}}">@lang('lang.directory')</a>
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>
                         @endguest
                         <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>

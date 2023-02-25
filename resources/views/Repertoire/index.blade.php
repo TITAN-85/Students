@@ -18,7 +18,7 @@
                     <div class="p-2 p-sm-3" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-                                <h2>REPERTOIRE</h2>
+                                <h2>@lang('lang.directory') </h2>
 {{--                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">--}}
 {{--                                    @csrf--}}
 
@@ -58,42 +58,30 @@
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
 
 
-                        @foreach($articles as $article)
+{{--                        @foreach($articles as $article)--}}
 
-                        <div class="card mb-2">
-                            <div class="card-body p-2 p-sm-3">
-                                <div class="media forum-item">
-                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                    @if(Auth::user()->id == $article->forum_user_id)
-                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>
-                                    @endif
-                                    <div class="media-body">
-                                        <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>
-                                        <p class="text-secondary">
-                                            {{$article->article}}
-                                        </p>
-                                        <p class="text-muted"><a href="javascript:void(0)">{{$article->name}}</a> replied <span class="text-secondary font-weight-bold">{{$article->updated_at}}</span></p>
-                                    </div>
-                                    <div class="text-muted small text-center align-self-center">
-                                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
-                                        <span><i class="far fa-comment ml-2"></i> 3</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
-                        <ul class="pagination pagination-sm pagination-circle justify-content-center mb-0">
-                            <li class="page-item disabled">
-                                <span class="page-link has-icon"><i class="material-icons">chevron_left</i></span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
-                            <li class="page-item active"><span class="page-link">2</span></li>
-                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link has-icon" href="javascript:void(0)"><i class="material-icons">chevron_right</i></a>
-                            </li>
-                        </ul>
+{{--                        <div class="card mb-2">--}}
+{{--                            <div class="card-body p-2 p-sm-3">--}}
+{{--                                <div class="media forum-item">--}}
+{{--                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>--}}
+{{--                                    @if(Auth::user()->id == $article->forum_user_id)--}}
+{{--                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>--}}
+{{--                                    @endif--}}
+{{--                                    <div class="media-body">--}}
+{{--                                        <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>--}}
+{{--                                        <p class="text-secondary">--}}
+{{--                                            {{$article->article}}--}}
+{{--                                        </p>--}}
+{{--                                        <p class="text-muted"><a href="javascript:void(0)">{{$article->name}}</a> replied <span class="text-secondary font-weight-bold">{{$article->updated_at}}</span></p>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="text-muted small text-center align-self-center">--}}
+{{--                                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>--}}
+{{--                                        <span><i class="far fa-comment ml-2"></i> 3</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        @endforeach--}}
 
 
                     </div>

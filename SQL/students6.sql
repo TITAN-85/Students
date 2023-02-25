@@ -211,6 +211,19 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 
 
 -- --------------------------------------------------------
+
+CREATE TABLE `repertoires` (
+    `id` bigint UNSIGNED NOT NULL,
+    `title` VARCHAR(100) NOT NULL,
+    `title_fr` VARCHAR(100) NOT NULL,
+    `path` VARCHAR(255) NOT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    `repertoires_user_id` INT NOT NULL,
+    CONSTRAINT repertoires_user_id_fk FOREIGN KEY (repertoires_user_id) REFERENCES users (id))
+    ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `forums`
 --
@@ -270,8 +283,13 @@ ALTER TABLE `forums`
 
 --
 -- Indexes for table `users`
+
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+ALTER TABLE `repertoires`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -279,6 +297,8 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `repertoires`
+----
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
@@ -306,4 +326,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+
 

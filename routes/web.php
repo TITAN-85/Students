@@ -5,6 +5,8 @@ use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\RepertoireController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +64,6 @@ Route::delete('forum-edit/{forum}', [ForumController::class, 'destroy']);
 Route::post('/forum-create', [ForumController::class, 'store'])->name('forum.store');
 
 // REPERTOIRE
-Route::get('repertoire', [ForumController::class, 'index'])->name('repertoire.index');
+Route::get('repertoire', [RepertoireController::class, 'index'])->name('repertoire.index');
 
 
