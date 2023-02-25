@@ -17,10 +17,12 @@ return [
     'back' => 'Retourner',
     'submit' => 'Soumettre',
     'send' => 'Envoye',
-    'title_forum_placeholder' => 'Entrer titre ici',
-    'forum_article' => 'Entrer article ici',
+    'title_forum_placeholder' => 'Entrer Titre ici',
+    'forum_article' => 'Entrer Article ici',
     'title_forum' => 'Titre',
     'closed_forum' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
     'directory' => 'Répertoire',
+    'add_file' => 'Ajouter une fichier',
+
 
 ];

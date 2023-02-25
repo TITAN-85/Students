@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Etudiants List')
+@section('title', 'Repertoire')
 @section('content')
 
 {{--if--}}
@@ -17,37 +17,40 @@
                     <!-- New Thread Modal -->
                     <div class="p-2 p-sm-3" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <h2>@lang('lang.directory') </h2>
+                            <h2>@lang('lang.directory') </h2>
+                                <div class="modal-content">
+                                    <div class="col-4">
+                                        <a href="{{ route('repertoire.create') }}" class="btn btn-outline-primary"> @lang('lang.add_file') </a>
+                                    </div>
 {{--                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">--}}
+{{--                                <form action="{{ route('forum.store', Auth::user()->user_etudiant_id)}}" method="post">--}}
+{{--                                    <form action="{{ route('repertoire.store')}}"  method="post" >--}}
 {{--                                    @csrf--}}
 
-{{--                                    <div class="modal-body" style="padding: 20px; ">--}}
-{{--                                        <div class="form-group">--}}
+{{--                                        <div class="modal-body" style="padding: 20px; ">--}}
+{{--                                            <div class="form-group">--}}
 
-{{--                                            <div>--}}
-{{--                                            </div>--}}
+{{--                                                <label for="titleFileEn">@lang('lang.title_forum') En </label>--}}
+{{--                                                <input type="text" class="form-control" id="titleFileEn" name="titleFileEn" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
+{{--                                                </div>--}}
 
-{{--                                            <label for="titleForumEn">@lang('lang.title_forum') En </label>--}}
-{{--                                            <input type="text" class="form-control" id="titleForumEn" name="titleForumEn" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
-{{--                                        </div>--}}
+{{--                                                <div class="form-group">--}}
+{{--                                                    <label for="titleFileFr">@lang('lang.title_forum') Fr</label>--}}
+{{--                                                    <input type="text" class="form-control" id="titleFileFr" name="titleFileFr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
+{{--                                                </div>--}}
 
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="titleForumFr">@lang('lang.title_forum') Fr</label>--}}
-{{--                                            <input type="text" class="form-control" id="titleForumFr" name="titleForumFr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
-{{--                                        </div>--}}
+{{--                                                <h3 class=""> PDF, Zip et Doc </h3>--}}
+{{--                                                <label class="form-label" for="tFile">--}}
+{{--                                                    <input id="tFile" class="form-control form-control-sm" type="file" name="userfile">--}}
+{{--                                                </label>--}}
 
-{{--                                        <label for="ArticleForumEn">Article En</label>--}}
-{{--                                        <textarea id="ArticleForumEn" name="ArticleForumEn" class="form-control summernote" placeholder="@lang('lang.forum_article')" ></textarea>--}}
-
-{{--                                        <label for="ArticleForumFr">Article Fr</label>--}}
-{{--                                        <textarea id="ArticleForumFr" name="ArticleForumFr" class="form-control summernote"  placeholder="@lang('lang.forum_article')"></textarea>--}}
-
-{{--                                        <div class="card-footer">--}}
-{{--                                            <input type="submit" value="Envoye" name="$newArticle" id="saveArticle" class="btn btn-success">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </form>--}}
+{{--                                                <div class="card-footer">--}}
+{{--                                                    <input type="submit" value="Envoye" name="$newFile" id="saveFile" class="btn btn-success">--}}
+{{--                                                </div>--}}
+{{--                                             </div>--}}
+{{--                                            </form>--}}
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -85,20 +88,15 @@
 
 
                     </div>
-
                 </div>
                 <!-- /Inner main -->
             </div>
-
-
         </div>
     </div>
 @else
     <div class="container">
         <div class="main-body p-0">
             <div class="inner-wrapper">
-
-
                 <!-- Inner main -->
                 <div class="inner-main">
                     <!-- New Thread Modal -->

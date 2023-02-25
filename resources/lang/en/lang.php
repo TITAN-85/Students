@@ -17,9 +17,10 @@ return [
     'back' => 'Back',
     'submit' => 'Submit',
     'send' => 'Send',
-    'title_forum_placeholder' => 'Enter title here',
-    'forum_article' => 'Enter article here',
+    'title_forum_placeholder' => 'Enter Title here',
+    'forum_article' => 'Enter Article here',
     'title_forum' => 'Title',
     'closed_forum' => 'If you are not a student, The Forum is closed..',
     'directory' => 'Directory',
+    'add_file' => 'Add file',
 ];

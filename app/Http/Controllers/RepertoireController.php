@@ -24,7 +24,7 @@ class RepertoireController extends Controller
      */
     public function create()
     {
-        //
+        return view('repertoire.create');
     }
 
     /**
@@ -35,7 +35,29 @@ class RepertoireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+
+        $pathFile = $request->path;
+//        $nameFile = $request->userfile;
+        $nameFile = $pathFile->getClientOriginalName();
+        dd($nameFile);
+        $pathStore = "public/files/";
+        $pathFile->move($pathFile, $nameFile);
+        $pathFile->storeAs($pathStore, $nameFile);
+
+//        $nom_fichier = $_FILES['userfile']['name'];
+//
+//        $fichier = $_FILES['userfile']['tmp_name'];
+//        move_uploaded_file($fichier, "assets/jpeg/timbres/" . $nom_fichier);
+//
+//        // echo "<pre>" . print_r($derniereEnchereId, onntrue) . "<pre>"; exit;
+//        $retour = $this->oRequetesSQL->ajouterImage([
+//            'image_url'         => $nom_fichier,
+//            'image_timbre_id'   => $retour
+//        ]);
+
+//StoreAs()
+
     }
 
     /**
@@ -81,5 +103,16 @@ class RepertoireController extends Controller
     public function destroy(User $user)
     {
         //
+    }    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function download(User $user)
+    {
+//    use Illuminate\Support\Facades\Storage;
+//
+//        $url = Storage::url('file.jpg');
     }
 }

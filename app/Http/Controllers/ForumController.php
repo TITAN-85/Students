@@ -85,9 +85,8 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
-//        return $request;
-        $newArticle = Forum::create([
+
+        Forum::create([
             "title"             =>  $request->titleForumEn,
             "title_fr"          =>  $request->titleForumFr,
             "article"           =>  $request->ArticleForumEn,
@@ -107,7 +106,7 @@ class ForumController extends Controller
     {
 
         $user = User::select()->where("id", "=", $forum->id )->get();
-//        dd($forum);
+
         return view( 'forum.show', ['article' => $forum, 'user' => $user]);
     }
 
