@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Repertoire extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "title",
+        "title_fr",
+        "path",
+        'repertoires_user_id',
+    ];
 }

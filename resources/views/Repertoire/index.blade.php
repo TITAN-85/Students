@@ -22,35 +22,7 @@
                                     <div class="col-4">
                                         <a href="{{ route('repertoire.create') }}" class="btn btn-outline-primary"> @lang('lang.add_file') </a>
                                     </div>
-{{--                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">--}}
-{{--                                <form action="{{ route('forum.store', Auth::user()->user_etudiant_id)}}" method="post">--}}
-{{--                                    <form action="{{ route('repertoire.store')}}"  method="post" >--}}
-{{--                                    @csrf--}}
-
-{{--                                        <div class="modal-body" style="padding: 20px; ">--}}
-{{--                                            <div class="form-group">--}}
-
-{{--                                                <label for="titleFileEn">@lang('lang.title_forum') En </label>--}}
-{{--                                                <input type="text" class="form-control" id="titleFileEn" name="titleFileEn" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
-{{--                                                </div>--}}
-
-{{--                                                <div class="form-group">--}}
-{{--                                                    <label for="titleFileFr">@lang('lang.title_forum') Fr</label>--}}
-{{--                                                    <input type="text" class="form-control" id="titleFileFr" name="titleFileFr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />--}}
-{{--                                                </div>--}}
-
-{{--                                                <h3 class=""> PDF, Zip et Doc </h3>--}}
-{{--                                                <label class="form-label" for="tFile">--}}
-{{--                                                    <input id="tFile" class="form-control form-control-sm" type="file" name="userfile">--}}
-{{--                                                </label>--}}
-
-{{--                                                <div class="card-footer">--}}
-{{--                                                    <input type="submit" value="Envoye" name="$newFile" id="saveFile" class="btn btn-success">--}}
-{{--                                                </div>--}}
-{{--                                             </div>--}}
-{{--                                            </form>--}}
-                                        </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,30 +33,69 @@
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
 
 
-{{--                        @foreach($articles as $article)--}}
+                        @foreach($files as $file)
 
-{{--                        <div class="card mb-2">--}}
-{{--                            <div class="card-body p-2 p-sm-3">--}}
-{{--                                <div class="media forum-item">--}}
-{{--                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>--}}
-{{--                                    @if(Auth::user()->id == $article->forum_user_id)--}}
-{{--                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>--}}
+                        <div class="card mb-2">
+                            <div class="card-body p-2 p-sm-3">
+                                <div class="media forum-item">
+                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+
+
+{{--                                    @if(Auth::user()->id)--}}
+{{--                                        <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success">Modiffier / Effacer</a>--}}
 {{--                                    @endif--}}
-{{--                                    <div class="media-body">--}}
-{{--                                        <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>--}}
-{{--                                        <p class="text-secondary">--}}
-{{--                                            {{$article->article}}--}}
-{{--                                        </p>--}}
-{{--                                        <p class="text-muted"><a href="javascript:void(0)">{{$article->name}}</a> replied <span class="text-secondary font-weight-bold">{{$article->updated_at}}</span></p>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="text-muted small text-center align-self-center">--}}
-{{--                                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>--}}
-{{--                                        <span><i class="far fa-comment ml-2"></i> 3</span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        @endforeach--}}
+
+{{--                                    <form action="{{ route('repertoire.store')}}" enctype="multipart/form-data" method="post" >--}}
+{{--                                        @csrf--}}
+{{--                                        @method('post')--}}
+{{--                                        <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success"> Download</a>--}}
+{{--                                        <input type="submit" placeholder="Sauvgarder" class="btn btn-warning btn-block">--}}
+{{--                                    </form>--}}
+                                    
+
+
+                                    <div class="media-body">
+                                        <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$file->title}}</a></h6>
+                                        <p class="text-secondary">
+                                            here is the file icon
+                                        </p>
+                                    </div>
+
+
+                                    <div class="text-muted small text-center align-self-center">
+                                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>
+                                        <span><i class="far fa-comment ml-2"></i> 3</span>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="row text-center ma-2">
+                                            <div class="col-12">
+
+                                                <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success">Modiffier / Effacer</a>
+                                                <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success"> Download</a>
+
+                                                {{--                                                <form action="{{ route('repertoire.store')}}" enctype="multipart/form-data" method="post" >--}}
+{{--                                                    @csrf--}}
+{{--                                                    @method('post')--}}
+{{--                                                    <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success"> Download</a>--}}
+{{--                                                    <input type="submit" placeholder="Sauvgarder" class="btn btn-warning btn-block">--}}
+{{--                                                </form>--}}
+
+{{--                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Effacer article</button>--}}
+{{--                                                <a href="" class="btn btn-success">Mettre a jour article</a>--}}
+
+                                            </div>
+                                            <div class="col-6"></div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
 
 
                     </div>

@@ -66,8 +66,11 @@ Route::post('/forum-create', [ForumController::class, 'store'])->name('forum.sto
 // REPERTOIRE
 Route::get('repertoire', [RepertoireController::class, 'index'])->name('repertoire.index');
 Route::get('repertoire-create', [RepertoireController::class, 'create'])->name('repertoire.create');
-Route::put('/repertoire-store', [RepertoireController::class, 'store'])->name('repertoire.store');
-//Route::post('/repertoire-store', [RepertoireController::class, 'store'])->name('repertoire.store');
+Route::post('/repertoire-store', [RepertoireController::class, 'store'])->name('repertoire.store');
+Route::get('repertoire-edit/{repertoire}', [RepertoireController::class, 'edit'])->name('repertoire.edit');
+Route::get('repertoire-download/{repertoire}', [RepertoireController::class, 'download'])->name('repertoire.download');
+
+
 
 
 

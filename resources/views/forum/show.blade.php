@@ -17,11 +17,10 @@
                                     <small class="d-block text-center text-muted"> {{$article->title}}</small>
                                 </a>
                                 <div class="media-body ml-3">
-{{--                                FIXME    <a href="javascript:void(0)" class="text-secondary">{{$user->name}}</a>--}}
                                     <small class="text-muted ml-2">Article created: {{ $article->created_at}}</small>
                                     <h5 class="mt-1">{{$article->title}}</h5>
                                     <div class="mt-3 font-size-sm">
-                                        <p>Hellooo :)</p>
+{{--                                        <p>Hellooo :)</p>--}}
                                         <p>
                                             {{$article->article}}
                                         </p>
@@ -32,12 +31,10 @@
                                 <div>
                                     <div class="row text-center ma-2">
                                         <div class="col-12">
-
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 Effacer article
                                             </button>
-
                                             <a href="{{ route('forum.edit', $article->id)}}" class="btn btn-success">Mettre a jour article</a>
                                         </div>
                                         <div class="col-6">

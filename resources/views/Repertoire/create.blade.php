@@ -22,31 +22,49 @@
                                     <div class="col-4">
                                         <a href="{{ route('repertoire.index') }}" class="btn btn-outline-primary">Retourner</a>
                                     </div>
+{{--FORM--}}
                                     {{--                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">--}}
                                     {{--                                <form action="{{ route('forum.store', Auth::user()->user_etudiant_id)}}" method="post">--}}
                                     <form action="{{ route('repertoire.store')}}" enctype="multipart/form-data" method="post" >
+{{--MESSAGE SUCCESS--}}
                                         @csrf
-                                        @method('put')
+{{--                                        @method('post')--}}
 
+                                        @if ($message = Session::get('success'))
+                                            <div class="alert alert-success">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @endif
+
+                                        @if (count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+{{--FORM DATA--}}
                                         <div class="modal-body" style="padding: 20px; ">
                                             <div class="form-group">
 
-                                                <label for="titleFileEn">@lang('lang.title_forum') En </label>
-                                                <input type="text" class="form-control" id="titleFileEn" name="titleFileEn" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
+                                                <label for="title">@lang('lang.title_forum') En </label>
+                                                <input type="text" class="form-control" id="titleFileEn" name="title" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="titleFileFr">@lang('lang.title_forum') Fr</label>
-                                                <input type="text" class="form-control" id="titleFileFr" name="titleFileFr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
+                                                <label for="title_fr">@lang('lang.title_forum') Fr</label>
+                                                <input type="text" class="form-control" id="titleFileFr" name="title_fr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
                                             </div>
 
                                             <h3 class=""> PDF, Zip et Doc </h3>
-                                            <label class="form-label" for="tFile">
-                                                <input id="tFile" class="form-control form-control-sm" type="file" name="userfile">
+                                            <label class="form-label" for="file">
+                                                <input id="file" class="form-control form-control-sm" type="file" name="file">
                                             </label>
 
                                             <div class="card-footer">
-                                                <input type="submit" value="Envoye" name="$newFile" id="saveFile" class="btn btn-success">
+                                                <input type="submit" value="Envoye" name=submit id="saveFile" class="btn btn-primary btn-block mt-4">
                                             </div>
                                         </div>
                                     </form>
