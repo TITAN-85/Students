@@ -134,9 +134,9 @@ class RepertoireController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function download(Request $request)
+    public function download(Repertoire $repertoire)
     {
-
+    dd($repertoire);
         return $request;
 
         $file = File::find($id);
