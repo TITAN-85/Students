@@ -20,9 +20,13 @@ return [
     'title_forum_placeholder' => 'Entrer Titre ici',
     'forum_article' => 'Entrer Article ici',
     'title_forum' => 'Titre',
-    'closed_forum' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
+    'students_forum_only' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
     'directory' => 'Répertoire',
     'add_file' => 'Ajouter une fichier',
+    'students_directory_only' => 'Si vous n\'êtes pas étudiant, le repertoire est fermé..',
 
+    'title_header1' => 'Les étudiants du collège Maisonneuve',
+    'title_header2' => 'Accéder à la liste d\'étudiants',
+    'admin_only' => 'Administrateur uniquement',
 
 ];

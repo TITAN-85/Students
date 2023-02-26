@@ -51,7 +51,7 @@
 {{--                                        <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success"> Download</a>--}}
 {{--                                        <input type="submit" placeholder="Sauvgarder" class="btn btn-warning btn-block">--}}
 {{--                                    </form>--}}
-                                    
+
 
 
                                     <div class="media-body">
@@ -116,7 +116,7 @@
                             <div class="modal-content">
                                 <div>
                                     <h2>
-                                        @lang('lang.closed_forum')
+                                        @lang('lang.students_directory_only')
                                     </h2>
                             </div>
                         </div>

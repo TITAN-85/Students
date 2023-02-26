@@ -119,7 +119,7 @@
                             <div class="modal-content">
                                 <div>
                                     <h2>
-                                        @lang('lang.closed_forum')
+                                        @lang('lang.students_forum_only')
                                     </h2>
                             </div>
                         </div>

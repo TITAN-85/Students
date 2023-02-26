@@ -4,48 +4,52 @@
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-12 text-center pt-5">
-            <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>
+    @if(Auth::check())
+        @if(Auth::user()->user_etudiant_id)
+
             <div class="row">
-                <div class="col-7">
-                    <p>Etudiants du colege Maisonneuve.</p>
-                </div>
-                <div class="col-4">
-                    <a href="{{ route('etudiant.create')}}" class="btn btn-outline-primary">Ajouter un etudiant</a>
+                <div class="col-12 text-center pt-5">
+                    <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>
+                    <div class="row">
+                        <div class="col-7">
+                            <p> @lang('lang.title_header1')</p>
+                        </div>
+{{--                        <div class="col-4">--}}
+{{--                            <a href="{{ route('etudiant.create')}}" class="btn btn-outline-primary">Ajouter un etudiant</a>--}}
+{{--                        </div>--}}
+                    </div>
+                    <!-- <a class="btn btn-outline-primary" href="/etudiant">Afficher Etudiant</a> -->
                 </div>
             </div>
-            <!-- <a class="btn btn-outline-primary" href="/etudiant">Afficher Etudiant</a> -->
-        </div>
-    </div>
 
-
-    <div class="row mb-5 justify-content-center">
-        <div class="col-8">
-            <div class="card">
-                <div class="card-header">Liste des etudiants</div>
-                <div class="card-body">
-                    <div class="row mb-5 justify-content-center">
-                        <div class="col-6 ">
-                            <ul>
-                                @forelse ($etudiants as $etudiant)
-                                <li class="d-grid btn btn-outline-dark">
-                                    <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->id)}}">{{ $etudiant->name }}</a>
-                                </li>
-                                @empty
-                                <li class="text-danger"> Rien </li>
-                                @endforelse
-                            </ul>
-                            <div class="justify-content-center">
-                                {{ $etudiants }}
+            <div class="row mb-5 justify-content-center">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">Liste des etudiants</div>
+                        <div class="card-body">
+                            <div class="row mb-5 justify-content-center">
+                                <div class="col-6 ">
+                                    <ul>
+                                        @forelse ($etudiants as $etudiant)
+                                        <li class="d-grid btn btn-outline-dark">
+                                            <a class="text-decoration-none" href="{{ route('etudiant.show', $etudiant->id)}}">{{ $etudiant->name }}</a>
+                                        </li>
+                                        @empty
+                                        <li class="text-danger"> Rien </li>
+                                        @endforelse
+                                    </ul>
+                                    <div class="justify-content-center">
+                                        {{ $etudiants }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+        @endif
+    @endif
 
 </div>
 

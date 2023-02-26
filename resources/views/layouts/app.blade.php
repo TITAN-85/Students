@@ -20,9 +20,8 @@
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); min-height: 185px;">
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-white">
-                        <h1 class="mb-3">Les etudiants du college Maisonneuve.</h1>
-                        <h4 class="mb-3">Bienvenue Marcos</h4>
-                        <a class="btn btn-outline-light btn-lg" href="{{ route('etudiant.index') }}" role="button">Acceder a la liste d'etudiants</a>
+                        <h1 class="mb-3"> @lang('lang.title_header1') </h1>
+                        <a class="btn btn-outline-light btn-lg" href="{{ route('etudiant.index') }}" role="button"> @lang('lang.title_header2') </a>
                     </div>
                 </div>
             </div>
@@ -60,6 +59,7 @@
     </header>
 
     @yield('content')
+
 </body>
 
 <footer class="bg-light text-center text-lg-start">

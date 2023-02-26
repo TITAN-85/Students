@@ -20,7 +20,13 @@ return [
     'title_forum_placeholder' => 'Enter Title here',
     'forum_article' => 'Enter Article here',
     'title_forum' => 'Title',
-    'closed_forum' => 'If you are not a student, The Forum is closed..',
+    'students_forum_only' => 'If you are not a student, The Forum is closed..',
     'directory' => 'Directory',
     'add_file' => 'Add file',
+    'students_directory_only' => 'If you are not a student, The Directory is closed..',
+
+    'title_header1' => 'Maisonneuve College students',
+    'title_header2' => 'Access the list of students',
+    'admin_only' => 'Admin only',
+
 ];
