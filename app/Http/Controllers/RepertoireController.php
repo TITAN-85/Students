@@ -7,6 +7,7 @@ use Faker\Core\File;
 use Illuminate\Http\Request;
 use App\Models\Repertoire;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class RepertoireController extends Controller
@@ -53,7 +54,7 @@ class RepertoireController extends Controller
         if($request->file) {
             /* save to storage/app */
             $fileName = time().'_'.$request->file->getClientOriginalName();
-            $filePath = $request->file('file')->storeAs('public/files/uploads/', $fileName);
+            $filePath = $request->file('file')->storeAs('\files\uploads', $fileName);
 //            $fileModel->title = time().'_'.$request->file->getClientOriginalName();
 //            $fileModel->title_fr = time().'_'.$request->file->getClientOriginalName();
             $fileModel->title = $request->title;
@@ -127,11 +128,19 @@ class RepertoireController extends Controller
      */
     public function download(Repertoire $repertoire)
     {
-    dd($repertoire);
-        return $request;
+//    dd($repertoire);
+        $filename = $repertoire->path;
 
-        $file = File::find($id);
-        $link = json_decode($file->link);
+//        $filePath = public_path('files/example.pdf');
+//        $filename = $repertoire->id;
+        $filePath = storage_path('app' . $filename);
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
+        return response()->download($filePath, $filename, $headers);
+
+//        $file = File::find($id);
+//        $link = json_decode($file->link);
 
 //    use Illuminate\Support\Facades\Storage;
 //

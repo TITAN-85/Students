@@ -37,16 +37,15 @@
                                         <div class="directory">
                                             <img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="60" height="60"/>
                                             <div class="ml-2">
-                                                <h6 class="mr-8">Ogivet Maither</h6>
+                                                <h6 class="mr-8">{{$file->title}}</h6>
                                                 <div class="about">
-                                                    <span>22 Files</span>
-                                                    <span>Jan 21, 2020</span>
+                                                    <span>{{$file->created_at}}</span>
                                                 </div>
                                             </div>
                                             {{--BUTTONS--}}
                                             <div class="btnDirectory">
                                                 <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success mb-3 ">Modiffier / Effacer</a>
-                                                <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success "> Download </a>
+                                                <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success "> Download </a>
                                             </div>
                                             {{--END BUTTONS--}}
 {{--                                            <div class="check">--}}
