@@ -58,8 +58,10 @@ class ForumController extends Controller
 
         $articles = Forum::all();
         $etudiant = Etudiant::all();
-        $userConnected = Auth::user()->id;
-//        dd($etudiant);
+        $userConnected ='';
+        if(Auth::check()) {
+            $userConnected = Auth::user()->id;
+        }
         return view('forum.index', [
                                         'articles' => $articles,
                                         'userConnected' => $userConnected,

@@ -6,6 +6,9 @@
 
     @if(Auth::check())
         @if(Auth::user()->user_etudiant_id)
+{{--            admin numbers--}}
+            {{--49866058108--}}
+            {{--610573041096--}}
 
             <div class="row">
                 <div class="col-12 text-center pt-5">

@@ -4,6 +4,7 @@
 
 {{--if--}}
 {{--etudiant--}}
+@if(Auth::user())
 @if(Auth::user()->user_etudiant_id)
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
@@ -56,7 +57,6 @@
 
                     <!-- Forum List -->
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-
 
                         @foreach($articles as $article)
 
@@ -128,5 +128,6 @@
             </div>
         </div>
     </div>
+@endif
 @endif
 @endsection

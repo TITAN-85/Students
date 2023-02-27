@@ -213,7 +213,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- --------------------------------------------------------
 
 CREATE TABLE `repertoires` (
-    `id` bigint UNSIGNED NOT NULL,
+    `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(100) NOT NULL,
     `title_fr` VARCHAR(100) NOT NULL,
     `path` VARCHAR(255) NOT NULL,
@@ -296,9 +296,8 @@ ALTER TABLE `repertoires`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `repertoires`
-----
+
+
 -- AUTO_INCREMENT for table `categorie`
 --
 ALTER TABLE `categorie`
