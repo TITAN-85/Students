@@ -18,15 +18,13 @@
                 <div class="">
                     <!-- New Thread Modal -->
                     <div class="" role="document">
-                        <h2>@lang('lang.directory') </h2>
+                        <h2> @lang('lang.directory_nav') </h2>
                             <a href="{{ route('repertoire.create') }}" class="btn btn-outline-primary"> @lang('lang.add_file') </a>
                         </div>
                     </div>
-
                     <!-- Inner main body -->
 
                     <!-- Forum List -->
-
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
 
                         @foreach($files as $file)
@@ -44,53 +42,18 @@
                                             </div>
                                             {{--BUTTONS--}}
                                             <div class="btnDirectory">
-                                                <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success mb-3 ">Modiffier / Effacer</a>
-                                                <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success "> Download </a>
+                                                <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success mb-3 "> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>
+                                                <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success "> @lang('lang.download_btn') </a>
                                             </div>
                                             {{--END BUTTONS--}}
 {{--                                            <div class="check">--}}
 {{--                                                <input type="checkbox" name="a">--}}
 {{--                                            </div>--}}
                                         </div>
-
                                     </li>
-
-{{--                                    <div class="card mb-2">--}}
-{{--                                        <div class="card-body p-2 p-sm-3">--}}
-{{--                                            <div class="media forum-item">--}}
-
-
-{{--                                                <div class="media-body">--}}
-{{--                                                    <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$file->title}}</a></h6>--}}
-{{--                                                    <p class="text-secondary"></p>--}}
-{{--                                                </div>--}}
-
-
-{{--                                                <div class="text-muted small text-center align-self-center">--}}
-{{--                                                    <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>--}}
-{{--                                                    <span><i class="far fa-comment ml-2"></i> 3</span>--}}
-{{--                                                </div>--}}
-
-{{--BUTTONS--}}
-{{--                                                <div>--}}
-{{--                                                    <div class="row text-center ma-2">--}}
-{{--                                                        <div class="col-12">--}}
-{{--                                                            <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success">Modiffier / Effacer</a>--}}
-{{--                                                            <a href="{{ route('repertoire.download', $file )}}" class="btn btn-success"> Download</a>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="col-6"></div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--END BUTTONS--}}
-
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
                                 </ul>
                             </div>
                         @endforeach
-
 
                     </div>
                 </div>

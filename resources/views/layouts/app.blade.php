@@ -40,13 +40,13 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         @guest
-                            <a class="nav-link" href="{{route('user.create')}}">Registration</a>
-                            <a class="nav-link" href="{{route('login')}}">Login</a>
+                            <a class="nav-link" href="{{route('user.create')}}">@lang('lang.registration_nav')</a>
+                            <a class="nav-link" href="{{route('login')}}">@lang('lang.login_nav')</a>
                         @else
-                            <a class="nav-link" href="{{route('etudiant.index')}}">Students</a>
-                            <a class="nav-link" href="{{route('forum.index')}}">Forum</a>
-                            <a class="nav-link" href="{{route('repertoire.index')}}">@lang('lang.directory')</a>
-                            <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                            <a class="nav-link" href="{{route('etudiant.index')}}">@lang('lang.students_nav')</a>
+                            <a class="nav-link" href="{{route('forum.index')}}">@lang('lang.Forum_nav')</a>
+                            <a class="nav-link" href="{{route('repertoire.index')}}">@lang('lang.directory_nav')</a>
+                            <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout_nav')</a>
                         @endguest
                         <a class="nav-link @if($locale == 'en')  bg-secondary  @endif" href="{{route('lang', 'en')}}">En<i class="flag flag-united-states"></i></a>
                         <a class="nav-link @if($locale == 'fr')  bg-secondary  @endif" href="{{route('lang', 'fr')}}" href="{{route('lang', 'fr')}}">Fr<i class="flag flag-france"></i></a>

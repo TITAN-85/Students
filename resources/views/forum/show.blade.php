@@ -32,10 +32,8 @@
                                     <div class="row text-center ma-2">
                                         <div class="col-12">
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Effacer article
-                                            </button>
-                                            <a href="{{ route('forum.edit', $article->id)}}" class="btn btn-success">Mettre a jour article</a>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('lang.delete_btn')</button>
+                                            <a href="{{ route('forum.edit', $article->id)}}" class="btn btn-success">@lang('lang.update_btn')</a>
                                         </div>
                                         <div class="col-6">
                                         </div>
@@ -55,20 +53,20 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Oui. Effacer un post</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"> @lang('lang.article_del_y') </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        Vous etes sur?
-                    </div>
+
+                    <div class="modal-body">@lang('lang.article_del_q')</div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non. Retourner</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('lang.article_del_n')</button>
 {{--                        <button type="button" class="btn btn-primary">Save changes</button>--}}
 
                         <form action="{{ route('forum.edit', $article->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <input type="submit" value="Oui. Effacer" class="btn btn-danger">
+                            <input type="submit" value="@lang('lang.article_del_y_conf')" class="btn btn-danger">
                         </form>
 
                     </div>

@@ -6,11 +6,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-2">
-            <a href="{{ route('etudiant.index') }}" class="btn btn-outline-primary">Retourner</a>
-
-            <h1 class="display-one">
-                Modifier l'etudiant
-            </h1>
+            <a href="{{ route('forum.index') }}" class="btn btn-outline-primary">@lang('lang.back')</a>
+{{--            <h1 class="display-one">Modifier l'etudiant</h1>--}}
         </div>
     </div>
 </div>

@@ -45,7 +45,7 @@
                                         <textarea id="ArticleForumFr" name="ArticleForumFr" class="form-control summernote"  placeholder="@lang('lang.forum_article')"></textarea>
 
                                         <div class="card-footer">
-                                            <input type="submit" value="Envoye" name="$newArticle" id="saveArticle" class="btn btn-success">
+                                            <input type="submit" value="@lang('lang.send_btn')" name="$newArticle" id="saveArticle" class="btn btn-success">
                                         </div>
                                     </div>
                                 </form>
@@ -65,7 +65,7 @@
                                 <div class="media forum-item">
                                     <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
                                     @if(Auth::user()->id == $article->forum_user_id)
-                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>
+                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success"> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>
                                     @endif
                                     <div class="media-body">
                                         <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>
@@ -109,8 +109,6 @@
     <div class="container">
         <div class="main-body p-0">
             <div class="inner-wrapper">
-
-
                 <!-- Inner main -->
                 <div class="inner-main">
                     <!-- New Thread Modal -->
