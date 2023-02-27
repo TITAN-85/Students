@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Faker\Core\File;
+//use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\Repertoire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+
 
 
 class RepertoireController extends Controller
@@ -54,7 +57,7 @@ class RepertoireController extends Controller
         if($request->file) {
             /* save to storage/app */
             $fileName = time().'_'.$request->file->getClientOriginalName();
-            $filePath = $request->file('file')->storeAs('\files\uploads', $fileName);
+            $filePath = $request->file('file')->storeAs('/files/uploads', $fileName);
 //            $fileModel->title = time().'_'.$request->file->getClientOriginalName();
 //            $fileModel->title_fr = time().'_'.$request->file->getClientOriginalName();
             $fileModel->title = $request->title;
@@ -129,15 +132,18 @@ class RepertoireController extends Controller
     public function download(Repertoire $repertoire)
     {
 //    dd($repertoire);
-        $filename = $repertoire->path;
+        $filename = $repertoire->title;
 
 //        $filePath = public_path('files/example.pdf');
 //        $filename = $repertoire->id;
-        $filePath = storage_path('app' . $filename);
-        $headers = [
-            'Content-Type' => 'application/pdf',
-        ];
-        return response()->download($filePath, $filename, $headers);
+        $filePath = storage_path('app/' . $filename);
+//        dd($filename);
+//        dd($filePath);
+//        $headers = [
+//            'Content-Type' => 'application/pdf',
+//        ];
+//        dd($filePath);
+        return Response::download($filePath, $filename);
 
 //        $file = File::find($id);
 //        $link = json_decode($file->link);
