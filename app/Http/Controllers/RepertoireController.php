@@ -132,18 +132,19 @@ class RepertoireController extends Controller
     public function download(Repertoire $repertoire)
     {
 //    dd($repertoire);
-        $filename = $repertoire->title;
+        $filePath = $repertoire->path;
+        $title = $repertoire->title;
 
 //        $filePath = public_path('files/example.pdf');
 //        $filename = $repertoire->id;
-        $filePath = storage_path('app/' . $filename);
+        $filePath = storage_path('app/' . $filePath);
 //        dd($filename);
 //        dd($filePath);
-//        $headers = [
-//            'Content-Type' => 'application/pdf',
-//        ];
+        $headers = [
+            'Content-Type' => 'application/pdf',
+        ];
 //        dd($filePath);
-        return Response::download($filePath, $filename);
+        return Response::download($filePath, $title, $headers);
 
 //        $file = File::find($id);
 //        $link = json_decode($file->link);

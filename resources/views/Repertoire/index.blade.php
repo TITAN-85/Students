@@ -17,12 +17,16 @@
                 <!-- Inner main -->
                 <div class="">
                     <!-- New Thread Modal -->
+                    <div class="container d-flex  justify-content-center">
+
                     <div class="" role="document">
                         <h2> @lang('lang.directory_nav') </h2>
                             <a href="{{ route('repertoire.create') }}" class="btn btn-outline-primary"> @lang('lang.add_file') </a>
                         </div>
                     </div>
-                    <!-- Inner main body -->
+                </div>
+
+                <!-- Inner main body -->
 
                     <!-- Forum List -->
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
@@ -30,7 +34,7 @@
                         @foreach($files as $file)
 {{--                        https://bbbootstrap.com/snippets/bootstrap-folder-list-checkbox-and-transform-effect-16091735--}}
                             <div class="container d-flex  justify-content-center">
-                                <ul class="list-group mt-5 text-white">
+                                <ul class="list-group text-white">
                                     <li class="list-group-item d-flex flex-column justify-content-between align-content-center">
                                         <div class="directory">
                                             <img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="60" height="60"/>
