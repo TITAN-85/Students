@@ -48,7 +48,6 @@ class RepertoireController extends Controller
 
         $user_id = Auth::user()->id;
         $request->validate([
-//            'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
             'title' => 'required',
             'title_fr' => 'required',
             'file' => 'required|mimes:csv,doc,xlx,rtf,xls,jpg,jpeg,pdf,zip|max:2048'
@@ -58,18 +57,15 @@ class RepertoireController extends Controller
             /* save to storage/app */
             $fileName = time().'_'.$request->file->getClientOriginalName();
             $filePath = $request->file('file')->storeAs('/files/uploads', $fileName);
-//            $fileModel->title = time().'_'.$request->file->getClientOriginalName();
-//            $fileModel->title_fr = time().'_'.$request->file->getClientOriginalName();
             $fileModel->title = $request->title;
             $fileModel->title_fr = $request->title_fr;
             $fileModel->path = $filePath;
             $fileModel->repertoires_user_id = $user_id;
 
             // To delete...
-            $file = $request->file('file');
-            $file->move(public_path('files/uploads'), $fileName);
+//            $file = $request->file('file');
+//            $file->move(public_path('files/uploads'), $fileName);
 
-//            dd($fileModel);
             $fileModel->save();
             return back()
                 ->with('success','File has been uploaded.')
@@ -131,30 +127,17 @@ class RepertoireController extends Controller
      */
     public function download(Repertoire $repertoire)
     {
-//    dd($repertoire);
         $filePath = $repertoire->path;
         $title = $repertoire->title;
-
-//        $filePath = public_path('files/example.pdf');
-//        $filename = $repertoire->id;
         $filePath = storage_path('app/' . $filePath);
-//        dd($filename);
-//        dd($filePath);
         $headers = [
             'Content-Type' => 'application/pdf',
         ];
-//        dd($filePath);
+//        todo:
+//        $extension = $repertoire->file->extension();
+//        dd($extension);
+
         return Response::download($filePath, $title, $headers);
 
-//        $file = File::find($id);
-//        $link = json_decode($file->link);
-
-//    use Illuminate\Support\Facades\Storage;
-//
-//        $url = Storage::url('file.jpg');
-
-//        Route::get('/documemt', function () {
-//            return Storage::download('tutorial.pdf');
-//        });
     }
 }
