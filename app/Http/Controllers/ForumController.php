@@ -24,11 +24,14 @@ class ForumController extends Controller
         if(Auth::check()) {
             $userConnected = Auth::user()->id;
         }
+        $lang = session()->get('locale');
+
         return view('forum.index', [
                                         'articles' => $articles,
                                         'userConnected' => $userConnected,
-                                        'etudiant' => $etudiant
-                                        ]);
+                                        'etudiant' => $etudiant,
+                                        'lang' => $lang
+        ]);
     }
 
     /**

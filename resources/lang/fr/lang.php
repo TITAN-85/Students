@@ -22,6 +22,7 @@ return [
     'title_forum' => 'Titre',
     'students_forum_only' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
     'student_q' => 'Etudiant?',
+    'students' => 'Les etudiants',
 
 
     // articles

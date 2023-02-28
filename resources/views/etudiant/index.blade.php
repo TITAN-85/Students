@@ -12,7 +12,8 @@
             {{--610573041096--}}
             <div class="row">
                 <div class="col-12 text-center pt-5">
-                    <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>
+{{--                    <h1 class="display-one mt-5">{{ config ('app.name')}}</h1>--}}
+                    <h1 class="display-one mt-5"> @lang('lang.students')</h1>
                     <div class="row">
                         <div class="col-7">
                             <p> @lang('lang.title_header1')</p>

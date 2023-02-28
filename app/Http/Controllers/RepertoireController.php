@@ -26,9 +26,13 @@ class RepertoireController extends Controller
             ->join('repertoires', 'repertoires.repertoires_user_id', '=', 'users.id')
             ->get();
 
-//        $files = repertoire::all();
-//        dd($files);
-        return view('repertoire.index', ['files' => $files]);
+        $lang = session()->get('locale');
+
+//        dd($lang);
+        return view('repertoire.index', [
+            'files' => $files,
+            'lang' => $lang
+        ]);
     }
 
 

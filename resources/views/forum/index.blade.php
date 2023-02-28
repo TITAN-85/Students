@@ -66,6 +66,11 @@
                                     <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success"> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>
                                     @endif
                                     <div class="media-body">
+                                        @if($lang == 'en')
+                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>
+                                        @else
+                                            <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title_fr}}</a></h6>
+                                        @endif
                                         <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>
                                         <p class="text-secondary">
                                             {{$article->article}}

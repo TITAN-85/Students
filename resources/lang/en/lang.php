@@ -22,6 +22,7 @@ return [
     'title_forum' => 'Title',
     'students_forum_only' => 'If you are not a student, The Forum is closed..',
     'student_q' => 'Student?',
+    'students' => 'Students',
 
     // articles
     'article_del_q' => 'Are you sure?',
