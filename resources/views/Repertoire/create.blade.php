@@ -17,19 +17,14 @@
                         <!-- New Thread Modal -->
                         <div class="p-2 p-sm-3" id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
-                                <h2>@lang('lang.directory') </h2>
+                                <h2>@lang('lang.directory_nav') </h2>
                                 <div class="modal-content">
                                     <div class="col-4">
-                                        <a href="{{ route('repertoire.index') }}" class="btn btn-outline-primary">Retourner</a>
+                                        <a href="{{ route('repertoire.index') }}" class="btn btn-outline-primary">@lang('lang.back')</a>
                                     </div>
 {{--FORM--}}
-                                    {{--                                <form action="{{ route('forum.store', ['userConnected' =>$userConnected])}}" method="post">--}}
-                                    {{--                                <form action="{{ route('forum.store', Auth::user()->user_etudiant_id)}}" method="post">--}}
                                     <form action="{{ route('repertoire.store')}}" enctype="multipart/form-data" method="post" >
-{{--MESSAGE SUCCESS--}}
                                         @csrf
-{{--                                        @method('post')--}}
-
                                         @if ($message = Session::get('success'))
                                             <div class="alert alert-success">
                                                 <strong>{{ $message }}</strong>
@@ -58,13 +53,14 @@
                                                 <input type="text" class="form-control" id="titleFileFr" name="title_fr" placeholder="@lang('lang.title_forum_placeholder')" autofocus="" />
                                             </div>
 
-                                            <h3 class=""> PDF, Zip et Doc </h3>
+                                            <h3 class=""> @lang('lang.download_btn') </h3>
                                             <label class="form-label" for="file">
                                                 <input id="file" class="form-control form-control-sm" type="file" name="file">
+                                                <p>doc - xlx - rtf - xls - jpg - jpeg - pdf - zip</p>
                                             </label>
 
                                             <div class="card-footer">
-                                                <input type="submit" value="Envoye" name=submit id="saveFile" class="btn btn-primary btn-block mt-4">
+                                                <input type="submit" value="@lang('lang.send')" name=submit id="saveFile" class="btn btn-primary btn-block mt-4">
                                             </div>
                                         </div>
                                     </form>
@@ -78,33 +74,6 @@
 
                 <!-- Forum List -->
                 <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
-
-
-                    {{--                        @foreach($articles as $article)--}}
-
-                    {{--                        <div class="card mb-2">--}}
-                    {{--                            <div class="card-body p-2 p-sm-3">--}}
-                    {{--                                <div class="media forum-item">--}}
-                    {{--                                    <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>--}}
-                    {{--                                    @if(Auth::user()->id == $article->forum_user_id)--}}
-                    {{--                                    <a href="{{ route('forum.show', $article->id)}}" class="btn btn-success">Modiffier / Effacer</a>--}}
-                    {{--                                    @endif--}}
-                    {{--                                    <div class="media-body">--}}
-                    {{--                                        <h6><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body">{{$article->title}}</a></h6>--}}
-                    {{--                                        <p class="text-secondary">--}}
-                    {{--                                            {{$article->article}}--}}
-                    {{--                                        </p>--}}
-                    {{--                                        <p class="text-muted"><a href="javascript:void(0)">{{$article->name}}</a> replied <span class="text-secondary font-weight-bold">{{$article->updated_at}}</span></p>--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="text-muted small text-center align-self-center">--}}
-                    {{--                                        <span class="d-none d-sm-inline-block"><i class="far fa-eye"></i> 19</span>--}}
-                    {{--                                        <span><i class="far fa-comment ml-2"></i> 3</span>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        @endforeach--}}
-
 
                 </div>
             </div>

@@ -6,13 +6,11 @@
 {{--etudiant--}}
 @if(Auth::user())
 @if(Auth::user()->user_etudiant_id)
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/forum.css')}}">
     <div class="container">
         <div class="main-body p-0">
             <div class="inner-wrapper">
-
                 <!-- Inner main -->
                 <div class="inner-main">
                     <!-- New Thread Modal -->
@@ -94,15 +92,9 @@
                                 <a class="page-link has-icon" href="javascript:void(0)"><i class="material-icons">chevron_right</i></a>
                             </li>
                         </ul>
-
-
                     </div>
-
                 </div>
-                <!-- /Inner main -->
             </div>
-
-
         </div>
     </div>
 @else
@@ -119,6 +111,7 @@
                                     <h2>
                                         @lang('lang.students_forum_only')
                                     </h2>
+                                </div>
                             </div>
                         </div>
                     </div>

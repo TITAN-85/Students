@@ -17,16 +17,12 @@ class EtudiantController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function index() {
-        // $etudiants = User::all();
-        // return view('etudiant.index', ['etudiants' => $etudiants]);
-//        $userLoggedIn = Auth::user()->id;
+//        $etudiants = User::all();
+//        dd($etudiants);
+
         $etudiants = User::select()->paginate(15);
 
-//        $studentNumber = Etudiant::select()
-//            ->where($userLoggedIn, "=", "etudiant.id")
-//            ->get();
-//
-//        dd($studentNumber);
+//        dd($etudiants);
 
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }

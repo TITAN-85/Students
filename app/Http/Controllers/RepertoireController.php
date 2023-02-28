@@ -50,7 +50,7 @@ class RepertoireController extends Controller
         $request->validate([
             'title' => 'required',
             'title_fr' => 'required',
-            'file' => 'required|mimes:csv,doc,xlx,rtf,xls,jpg,jpeg,pdf,zip|max:2048'
+            'file' => 'required|mimes:doc,xlx,rtf,xls,jpg,jpeg,pdf,zip|max:2048'
         ]);
         $fileModel = new Repertoire;
         if($request->file) {
@@ -61,11 +61,6 @@ class RepertoireController extends Controller
             $fileModel->title_fr = $request->title_fr;
             $fileModel->path = $filePath;
             $fileModel->repertoires_user_id = $user_id;
-
-            // To delete...
-//            $file = $request->file('file');
-//            $file->move(public_path('files/uploads'), $fileName);
-
             $fileModel->save();
             return back()
                 ->with('success','File has been uploaded.')
@@ -134,10 +129,14 @@ class RepertoireController extends Controller
             'Content-Type' => 'application/pdf',
         ];
 //        todo:
-//        $extension = $repertoire->file->extension();
-//        dd($extension);
+//        $extension = $repertoire->path->extension();
+//        $extension = $repertoire->path->getClientOriginalExtension();
+        $ext = pathinfo(storage_path().$filePath, PATHINFO_EXTENSION);
+//        dd($ext);
+        $dot = ".";
+        $ext = $dot.$ext;
 
-        return Response::download($filePath, $title, $headers);
+        return Response::download($filePath, $title.$ext, $headers);
 
     }
 }

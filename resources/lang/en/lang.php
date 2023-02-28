@@ -21,6 +21,7 @@ return [
     'forum_article' => 'Enter Article here',
     'title_forum' => 'Title',
     'students_forum_only' => 'If you are not a student, The Forum is closed..',
+    'student_q' => 'Student?',
 
     // articles
     'article_del_q' => 'Are you sure?',
@@ -43,7 +44,7 @@ return [
     'update_btn' => 'Update',
     'delete_btn' => 'Delete',
     'modify_btn' => 'Modify',
-    'download_btn' => 'Download_btn',
+    'download_btn' => 'Download',
     'send_btn' => 'Send',
     // ===
 

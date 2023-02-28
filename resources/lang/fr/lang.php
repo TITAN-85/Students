@@ -21,6 +21,8 @@ return [
     'forum_article' => 'Entrer Article ici',
     'title_forum' => 'Titre',
     'students_forum_only' => '  Si vous n’êtes pas étudiant, Le Forum est fermé.',
+    'student_q' => 'Etudiant?',
+
 
     // articles
     'article_del_q' => 'Vous êtes sur?',

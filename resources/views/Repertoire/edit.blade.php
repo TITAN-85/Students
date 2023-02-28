@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mt-2">
-            <a href="{{ route('etudiant.index') }}" class="btn btn-outline-primary">Retourner</a>
+            <a href="{{ route('repertoire.index') }}" class="btn btn-outline-primary">Retourner</a>
 
             <h1 class="display-one">
                 Modifier l'etudiant
