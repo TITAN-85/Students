@@ -49,7 +49,11 @@
                                                 <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success mb-3"> @lang('lang.download_btn')  </a>
                                                 @if(Auth::user()->id == $file->repertoires_user_id)
 {{--                                                    <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success"> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>--}}
-                                                    <a href="{{ route('repertoire.destroy', $file->id)}}" class="btn btn-success"> @lang('lang.delete_btn')</a>
+
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('lang.delete_btn')</button>
+
+{{--                                                    <a href="{{ route('repertoire.destroy', $file->id)}}" class="btn btn-success"> @lang('lang.delete_btn')</a>--}}
                                                 @endif
                                             </div>
                                             {{--END BUTTONS--}}
@@ -65,7 +69,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"> @lang('lang.article_del_y') </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">@lang('lang.article_del_q')</div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('lang.article_del_n')</button>
+
+                    <form action="{{ route('repertoire.edit', $file->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" value="@lang('lang.article_del_y_conf')" class="btn btn-danger">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{--    Offlane Student--}}
 @else
+
     <div class="container">
         <div class="main-body p-0">
             <div class="inner-wrapper">
@@ -86,6 +118,7 @@
             </div>
         </div>
     </div>
+
 @endif
 @endif
 @endsection

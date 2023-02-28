@@ -61,7 +61,6 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('lang.article_del_n')</button>
-{{--                        <button type="button" class="btn btn-primary">Save changes</button>--}}
 
                         <form action="{{ route('forum.edit', $article->id) }}" method="POST">
                             @csrf
@@ -75,6 +74,5 @@
         </div>
     </div>
 @endsection
-<!-- /Forum Detail -->
 
 
