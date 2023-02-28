@@ -36,7 +36,7 @@ return [
     'registration_nav' => 'Inscription',
     'students_nav' => 'Etudiants',
     'Forum_nav' => 'Le forum',
-    'directory_nav' => 'Repertoire',
+    'directory_nav' => 'repertoire',
     'login_nav' => 'Connexion',
     'logout_nav' => 'Se déconnecter',
     // ===

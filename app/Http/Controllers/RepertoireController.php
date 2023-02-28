@@ -21,10 +21,17 @@ class RepertoireController extends Controller
      */
     public function index()
     {
+//        select * from repertoires inner JOIN users on repertoires.repertoires_user_id = users.id;
+        $files = User::select()
+            ->join('repertoires', 'repertoires.repertoires_user_id', '=', 'users.id')
+            ->get();
 
-        $files = Repertoire::all();
+//        $files = repertoire::all();
+//        dd($files);
         return view('repertoire.index', ['files' => $files]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -138,4 +145,19 @@ class RepertoireController extends Controller
         return Response::download($filePath, $title.$ext, $headers);
 
     }
+
+//    public function page(){
+//        $actionPost = ActionPost::select()
+//            ->paginate(5);
+//        return view('action.page', ['actionPosts' => $actionPost]);
+//    }
+
+
+//    public function showPdf(ActionPost $actionPost)
+//    {
+////        dd($actionPost);
+//        $pdf = PDF::loadView('action.Show-pdf', ['actionPost' => $actionPost]);
+//        return $pdf->stream('blogABC.pdf');
+//        //return $pdf->stream('blog-post.pdf');
+//    }
 }

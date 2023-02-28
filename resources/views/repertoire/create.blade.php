@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Repertoire')
+@section('title', 'repertoire')
 @section('content')
 
     {{--if--}}

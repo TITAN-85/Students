@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Repertoire')
+@section('title', 'repertoire')
 @section('content')
 
 {{-- if etudiant --}}
@@ -38,6 +38,8 @@
                                     <li class="list-group-item d-flex flex-column justify-content-between align-content-center">
                                         <div class="directory">
                                             <img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="60" height="60"/>
+                                            <h6>{{ $file->name }}</h6>
+{{--                                            <p>{{ $file->path}}</p>--}}
                                             <div class="ml-2">
                                                 <h6 class="mr-8">{{$file->title}}</h6>
                                                 <div class="about">
