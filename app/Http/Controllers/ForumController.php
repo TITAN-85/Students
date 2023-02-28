@@ -18,44 +18,6 @@ class ForumController extends Controller
      */
     public function index()
     {
-//        $articles = Forum::select();
-
-//        $users = User::all();
-//        select * from forums inner JOIN users on forums.forum_user_id = users.id;
-
-//          select * from forums
-//          left JOIN  users on
-//          forums.forum_user_id = users.id
-//          left JOIN  etudiants on
-//          etudiants.id = users.user_etudiant_id
-
-;
-//        $articles = Forum::select()
-//                 ->leftjoin("users", "forum_user_id", "=", "users.id")
-//                 ->rightjoin("etudiants", "etudiants.id", "=", "users.user_etudiant_id")
-//                 ->rightjoin("forums",  "forum_user_id", "=", "users.id")
-//                 ->get();
-//        $forumId = Forum::select('id')->get();
-//        $articles = $forumId;
-//        dd($articles);
-//        $articles = User::select()
-//            ->leftjoin("forums", "users.id", "=",  "forum_user_id")
-//            ->join("etudiants", "users.id", "=", "user_etudiant_id")
-//            ->get();
-
-//        dd($etudiant);
-
-//        $articles = User::select()
-//            ->rightjoin("forums", "forum_user_id", "=", "users.id")
-//            ->get();
-
-//        dd($usersForum);
-//        return $articles;
-//        dd($articles);
-//        $user = User::select('id')->get();
-//        dd($user);
-
-
         $articles = Forum::all();
         $etudiant = Etudiant::all();
         $userConnected ='';

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Faker\Core\File;
-//use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\Repertoire;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +22,6 @@ class RepertoireController extends Controller
     public function index()
     {
         $files = Repertoire::all();
-//        dd($files);
         return view('repertoire.index', ['files' => $files]);
     }
 
@@ -74,10 +72,10 @@ class RepertoireController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Repertoire  $repertoire
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Repertoire $repertoire)
     {
         //
     }
@@ -85,10 +83,10 @@ class RepertoireController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Repertoire  $repertoire
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Repertoire $repertoire)
     {
         //
     }
@@ -97,10 +95,10 @@ class RepertoireController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Repertoire  $repertoire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Repertoire $repertoire)
     {
         //
     }
@@ -108,16 +106,20 @@ class RepertoireController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Repertoire  $repertoire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Repertoire $repertoire)
     {
-        //
-    }    /**
+        $repertoire->delete();
+
+        return redirect(route('repertoire.index'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Repertoire  $repertoire
      * @return \Illuminate\Http\Response
      */
     public function download(Repertoire $repertoire)

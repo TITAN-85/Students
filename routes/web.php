@@ -69,6 +69,8 @@ Route::get('repertoire-create', [RepertoireController::class, 'create'])->name('
 Route::post('/repertoire-store', [RepertoireController::class, 'store'])->name('repertoire.store');
 Route::get('repertoire-edit/{repertoire}', [RepertoireController::class, 'edit'])->name('repertoire.edit');
 Route::get('repertoire-download/{repertoire}', [RepertoireController::class, 'download'])->name('repertoire.download');
+Route::delete('repertoire-edit/{repertoire}', [ForumController::class, 'destroy'])->name('repertoire.destroy');
+
 
 
 

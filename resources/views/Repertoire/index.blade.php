@@ -46,13 +46,13 @@
                                             </div>
                                             {{--BUTTONS--}}
                                             <div class="btnDirectory">
-                                                <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success mb-3 "> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>
-                                                <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success "> @lang('lang.download_btn') </a>
+                                                <a href="{{ route('repertoire.download', $file)}}" class="btn btn-success mb-3"> @lang('lang.download_btn')  </a>
+                                                @if(Auth::user()->id == $file->repertoires_user_id)
+{{--                                                    <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success"> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>--}}
+                                                    <a href="{{ route('repertoire.destroy', $file->id)}}" class="btn btn-success"> @lang('lang.delete_btn')</a>
+                                                @endif
                                             </div>
                                             {{--END BUTTONS--}}
-{{--                                            <div class="check">--}}
-{{--                                                <input type="checkbox" name="a">--}}
-{{--                                            </div>--}}
                                         </div>
                                     </li>
                                 </ul>
