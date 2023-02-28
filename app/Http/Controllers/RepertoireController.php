@@ -128,11 +128,7 @@ class RepertoireController extends Controller
         $headers = [
             'Content-Type' => 'application/pdf',
         ];
-//        todo:
-//        $extension = $repertoire->path->extension();
-//        $extension = $repertoire->path->getClientOriginalExtension();
         $ext = pathinfo(storage_path().$filePath, PATHINFO_EXTENSION);
-//        dd($ext);
         $dot = ".";
         $ext = $dot.$ext;
 

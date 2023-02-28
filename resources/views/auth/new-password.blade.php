@@ -6,11 +6,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 pt-4">
                     <div class="card">
-                        <h3 class="card-header text-center"> Login </h3>
+                        <h3 class="card-header text-center"> New Password </h3>
                         <div class="card-body">
+{{--                            @if(session('success'))--}}
+{{--                                <div class="alert alert-success">--}}
+{{--                                    {{session('success')}}--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
                             @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{session('success')}}
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong> {{session('success')}}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @endif
                             @if(!$errors->isEmpty())
@@ -24,8 +30,8 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('user.auth')}}" method="post">
-
+{{--                            <form action="{{route('user.auth')}}" method="post">--}}
+                                <form action="" method="post">
                                 @csrf
 
                                 <div class="form-group mb-3">
@@ -47,7 +53,7 @@
                                 </div>
 
                                 <div class="d-grid mx-auto">
-                                    <input type="submit" placeholder="Sauvgarder" class="btn btn-warning btn-block">
+                                    <input type="submit" placeholder="Save" class="btn btn-warning btn-block">
 
                                 </div>
                             </form>

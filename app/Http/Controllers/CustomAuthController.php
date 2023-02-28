@@ -56,44 +56,35 @@ class CustomAuthController extends Controller
 
 //        dd($request);
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:2|max:20',
             'email'=> 'required|email|unique:users',
-            'password' => 'required|min:6|max:20',
-            'adresse' => 'required',
-            'phone' => 'required',
-            'birthday' => 'required',
+            'password' => 'required|confirmed|min:6|max:20',
+            'adresse' => 'required|min:6|max:70',
+            'phone' => 'required|min:10|max:20',
+            'birthday' => 'required|before:now|after:-13 years',
             'user_ville_id' => 'required',
-//            'user_etudiant_id' => $randomNumber,
         ]);
 
 //        dd($request);
         $etudiant = Etudiant::create([
             'number' => $randomNumber
         ]);
-//        dd($etudiant);
 
         $user = new User;
         $user->fill($request->all());
-
         $user->user_etudiant_id = $etudiant->id;
-//        dd($user);
-
         $user->password = Hash::make($request->password);
         $user->save();
-
-
-//        User::create(['user_ville_id' => $request->user_ville_id]);
-
         $to_name = $request->name;
         $to_email = $request->email;
-        $body="<a href=''>Cliquez ici pour confirmer</a>";
+        $body="<a href='https://alexandrucandu.ca'>Cliquez ici pour confirmer</a>";
 
         Mail::send('email.mail', $data = [
             'name' => $to_name,
             'body' => $body
         ],
             function($message) use ($to_name, $to_email){
-                $message->to($to_email, $to_name)->subject('Courriel test laravel');
+                $message->to($to_email, $to_name)->subject('Alexandru Candu Projet');
             }
         );
 
@@ -157,7 +148,7 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email|exists:users',
-            'password' => 'required|min:2|max:20'
+            'password' => 'required|min:6|max:20'
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -178,21 +169,10 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-//        $name = 'Guest';
-//        $auth = Auth::user();
-
         if (Auth::check()) {
-//            $name = Auth::user()->name;
             return view('dashboard');
-//            return view(
-//                'layouts.dashboard',
-//
-//                ['name' => $name],
-//                ['auth' => $auth]
-//            );
+
         }
-//        return redirect(route('login'))->withErrors(trans('auth.failed'));
-//        return redirect(route('login'))->withErrors(trans('auth.failed'));
         return redirect(route('login'))->withErrors('Vous n\'êtes pas autorisé à accéder');
     }
 
@@ -226,10 +206,7 @@ class CustomAuthController extends Controller
         $user->save();
         $userId = $user->id;
 
-//        $link = "<a href='/new-password/" . $userId . "/" . $tempPass . "'>Cliquez ici pour réinitialiser votre mot de passe</a>";
-        $link = "<a href='http://localhost:8000/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
-
-//        dd($user);
+        $link = "<a href='https://alexandrucandu.ca/new-password/".$userId."/".$tempPass."'>Cliquez ici pour réinitialiser votre mot de passe</a>";
 
         $to_email = $user->email;
         $to_name = $user->name;
@@ -245,7 +222,6 @@ class CustomAuthController extends Controller
                 $message->to($to_email, $to_name)->subject('Reset password');
             }
         );
-//        return redirect()->back()->withSuccess(trans('check your email to change your password'));
         return redirect()->back()->withSuccess('Check your email to change your password');
     }
 

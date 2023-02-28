@@ -50,7 +50,7 @@
                                 <input type="submit" placeholder="Sauvgarder" value="@lang('lang.submit')" class="btn btn-warning btn-block">
                             </div>
                         </form>
-
+                            <a href="{{route('forgot.pass')}}">Mot de passe oublié</a>
                     </div>
                 </div>
             </div>
