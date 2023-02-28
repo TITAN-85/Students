@@ -51,8 +51,8 @@
 {{--                                                    <a href="{{ route('repertoire.edit', $file->id)}}" class="btn btn-success"> @lang('lang.modify_btn') / @lang('lang.delete_btn')</a>--}}
 
                                                     <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('lang.delete_btn')</button>
-
+{{--                                                    <p>Le button fonction pas</p>--}}
+{{--                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('lang.delete_btn')</button>--}}
 {{--                                                    <a href="{{ route('repertoire.destroy', $file->id)}}" class="btn btn-success"> @lang('lang.delete_btn')</a>--}}
                                                 @endif
                                             </div>
