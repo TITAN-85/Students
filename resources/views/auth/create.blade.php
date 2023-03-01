@@ -101,7 +101,7 @@
 
                             {{--                            ETUDIANTE?--}}
                             <div  class="form-check">
-                                <label class="form-check-label" for="flexCheckChecked" > @lang('lang.student_q')
+                                <label class="form-check-label" for="flexCheckChecked" > @lang('lang.student_q') / @lang('lang.info_login_students')
                                     <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="user_etudiant_id">
                                 </label>
                             </div>

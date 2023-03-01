@@ -56,5 +56,9 @@ return [
     'title_header1' => 'Les étudiants du collège Maisonneuve',
     'title_header2' => 'Accéder à la liste d\'étudiants',
     'admin_only' => 'Administrateur uniquement',
+    'header_bot1' => 'Centre de formation et de développement',
+    'header_bot2' => 'Formation continue',
+    'info_login_students' => 'Vous verrez le forum et repertoire',
+
 
 ];

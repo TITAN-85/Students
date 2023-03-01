@@ -1,0 +1,11 @@
+.header-bottom {
+    max-height: 110px;
+    padding: 50px;
+    /*filter: grayscale(80%)  brightness(270%) contrast(10%);*/
+    border: 2px solid gray;
+    text-transform: uppercase;
+}
+.header-bottom-photo{
+    filter: brightness(30%);
+    filter: ;
+}

@@ -53,5 +53,8 @@ return [
     'title_header1' => 'Maisonneuve College students',
     'title_header2' => 'Access the list of students',
     'admin_only' => 'Admin only',
+    'header_bot1' => 'Centre for training & Development',
+    'header_bot2' => 'Continuing education',
+    'info_login_students' => 'You will see all forum and directory',
 
 ];
