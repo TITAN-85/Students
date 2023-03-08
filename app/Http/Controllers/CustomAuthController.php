@@ -46,15 +46,10 @@ class CustomAuthController extends Controller
     {
         $randomNumber = '';
 
-//        if ($request->user_etudiant_id){
-//
-//        }
         for ($i = 0; $i < 10; $i++ ) {
             $randomNumber .= rand(0, 10);
         }
-//        dd($request);
 
-//        dd($request);
         $request->validate([
             'name' => 'required|min:2|max:20',
             'email'=> 'required|email|unique:users',
@@ -65,7 +60,6 @@ class CustomAuthController extends Controller
             'user_ville_id' => 'required',
         ]);
 
-//        dd($request);
         $etudiant = Etudiant::create([
             'number' => $randomNumber
         ]);
