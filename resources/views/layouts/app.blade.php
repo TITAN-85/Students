@@ -69,8 +69,7 @@
     </header>
 
     <!-- Background image bot-->
-    <div class="p-5 text-center bg-image header-bottom" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
-                height: 400px;">
+    <div class="p-5 text-center bg-image header-bottom" style="background-image: url('');height: 400px;">
         <div class="mask" style="background-color: rgba(0, 0, 0, 0.5); min-height: 185px;">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
