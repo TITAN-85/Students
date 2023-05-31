@@ -20,7 +20,7 @@ class EtudiantController extends Controller
 //        $etudiants = User::all();
 //        dd($etudiants);
 
-        $etudiants = User::select()->paginate(15);
+        $etudiants = User::select()->paginate(5);
 
 //        dd($etudiants);
 
@@ -37,7 +37,7 @@ class EtudiantController extends Controller
     public function show(User $etudiant)
     {
 //        $test = User::select();
-//        dd($test);
+       dd($etudiant);
         return view("etudiant.show", ["etudiant" => $etudiant]);
     }
 

@@ -378,3 +378,54 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+EN RÉSUMÉ
+Les véhicules hybrides de Toyota peuvent fonctionner en toute transparence en mode 100 % électrique, en mode essence, ou dans une combinaison qui utilise l’hybridation. Tout se passe automatiquement, sans intervention du conducteur. Le résultat? Un groupe propulseur qui produit 70 % moins d’émissions que les moteurs à essence conventionnels ou les moteurs diesel, sans aucun sacrifice en matière de performance et sans qu’il soit nécessaire de brancher le véhicule.
+
+Depuis 1997, les conducteurs bénéficient d’une meilleure économie de carburant, de coûts d’exploitation réduits et d’un niveau inégalé de confort et de raffinement grâce à la technologie hybride de Toyota. Aujourd’hui, la gamme de voitures hybrides de Toyota comprend de petites voitures hybrides, comme la Toyota Yaris Hybride et des voitures plus familiales comme la Toyota Camry, la Toyota Prius, Prius Prime et Prius C, et la toute nouvelle Toyota Corolla Hybride. Mais vous êtes-vous déjà demandé comment fonctionnent les voitures hybrides? Poursuivez votre lecture pour découvrir en quoi consiste exactement le système hybride Synergy Drive de Toyota, son fonctionnement et ses avantages pour l’environnement et votre portefeuille.
+
+QU'EST-CE QU'UN VÉHICULE HYBRIDE?
+En termes simples, un véhicule hybride est un véhicule à deux sources d’alimentation ou plus. La plupart des voitures de route hybrides utilisent un moteur à combustion interne normal couplé à un moteur électrique, mais leur combinaison signifie qu’il existe plusieurs types de configuration hybrides.
+
+À partir de la Prius d’origine, Toyota a lancé le système hybride « complet » qui utilise deux groupes moteurs distincts – un moteur électrique à piles et un moteur à combustion alimenté à l’essence – pouvant fonctionner ensemble pour conduire le véhicule ou chacun de leur côté. Il s’agit du système hybride le plus populaire au monde et il a été vendu à plus de 12 millions d’unités depuis le lancement de la Prius au Japon en août 1997.
+
+Le deuxième type d’hybride est appelé « parallèle ». Il utilise un moteur à combustion normale comme source principale d’énergie, avec un moteur électrique monté entre le moteur et la boîte de vitesses pour fournir une assistance. Cette disposition tend à être plus restreinte qu’un hybride « complet », et l’installation d’un moteur électrique dans un très petit espace limite également sa puissance et sa portée EV (véhicule électrique).
+
+Enfin, la troisième variante hybride est le type « série ». Dans ce type de véhicule, le moteur électrique assure toute la conduite. Le moteur à combustion normale n’est pas connecté à la transmission et fonctionne à la place comme un générateur pour alimenter le moteur électrique. Le principal obstacle pour un hybride « série » est de maintenir son efficacité une fois que la batterie est épuisée et, pour cette raison, les hybrides « série » sont rares.
+
+COMMENT FONCTIONNE LE SYSTÈME SYNERGY DRIVE?
+Le système hybride Synergy Drive de Toyota est composé de six composants principaux : un moteur à essence, un moteur électrique, un générateur électrique, l’unité de contrôle de puissance et un dispositif de partage de puissance utilisant un type spécial de boîte de vitesses pour distribuer en douceur la puissance du moteur de même qu’un générateur.
+
+En tant que système complet, Hybrid Synergy Drive est une technologie astucieuse et économe en carburant qui permet de basculer de manière transparente et automatique entre l’alimentation électrique et l’alimentation conventionnelle. Capable de s’adapter à différentes conditions de conduite, Hybrid Synergy Drive contrôle intelligemment la puissance provenant des deux sources et indique à la voiture comment les combiner pour une efficacité et une performance optimale.
+
+Comme son nom l’indique, le système offre une véritable synergie entre les deux sources d’alimentation. Lorsque le moteur est en marche, il charge la batterie par le générateur. Quand les conditions de conduite le permettent, par exemple dans des conditions de circulation lente, le groupe électrogène peut couper le moteur à essence et laisser le moteur électrique prendre le relais pour des déplacements sans émissions. Le système sophistiqué de gestion du moteur peut détecter le moment où la voiture est arrêtée et l’éteindra pour économiser l’énergie et réduire les émissions, et redémarrer automatiquement en cas de besoin.
+
+La batterie est toujours bien chargée par le système.Il n’est donc pas nécessaire de brancher une Toyota équipée du système Hybrid Synergy Drive pour le recharger. Toutefois, Toyota fabrique la Prius rechargeable (Plug-in) pour les personnes qui désirent utiliser une plus grande autonomie, soit près de 50 km en mode EV uniquement électrique. Ce type de véhicule est un « véhicule électrique hybride rechargeable » (PHEV) qui peut utiliser l’alimentation secteur (chargeur) pour compléter le système de charge à bord. Le moteur à essence est toujours présent de sorte que vous n’avez pas à vous inquiéter lors de vos déplacements.
+
+COMMENT LES BATTERIES SE RECHARGENT-ELLES?
+Le système Hybrid Synergy Drive de Toyota charge la batterie de deux manières. Premièrement et comme déjà mentionné, le moteur à essence entraîne le générateur pour charger la batterie. La seconde méthode utilise le freinage par récupération, un système qui utilise l’énergie de freinage à bon escient.
+
+Chaque fois que vous appuyez sur le frein ou que vous relevez l’accélérateur, le système réachemine l’énergie vers la batterie, où elle est effectivement recyclée. Au lieu de perdre de l’énergie sous forme de chaleur ou de bruit provenant des freins, celle-ci est capturée puis utilisée pour alimenter le moteur électrique ultérieurement. Ceci est particulièrement efficace dans les bouchons de circulation « arrêt-marche » où le système récupère et entrepose une grande quantité d’énergie, rendant la voiture plus efficace dans son ensemble.
+
+Pour un PHEV comme la Toyota Prius rechargeable (Plug-in), la batterie de bord peut également être chargée à la maison à l’aide de l’alimentation secteur ou à des points de charge dédiés tout au long de votre parcours, permettant ainsi une plus grande autonomie pouvant aller jusqu’à 25 km.
+
+QUELLE EST LA DURÉE DE VIE DES BATTERIES HYBRIDES?
+Les batteries des véhicules hybrides de Toyota sont des unités efficaces et résistantes à la corrosion conçues pour durer. C’est pourquoi la garantie de Toyota sur la batterie s’étend sur 8 ans / 160 000 km – cliquez ici pour en savoir plus.
+
+Ce sont des unités importantes qui doivent entreposer suffisamment de tension pour alimenter la voiture à des vitesses d’environ 50 km/h sans aucune assistance du moteur à essence. Il est vrai que leur production a un impact environnemental supplémentaire faible, mais il est largement compensé par les avantages environnementaux de la conduite d’une voiture hybride.
+
+Toyota tient également à recycler les batteries de ses voitures hybrides, qui peuvent être remises à neuf pour en fabriquer de nouvelles ou transformées en autres formes d’entreposage d’énergie fixe – ceci peut être discuté avec votre concessionnaire Toyota. Le constructeur automobile récupère déjà plus de 90 % des batteries hybrides de ses véhicules et vise un taux de récupération de 100 % d’ici quelques années.
+
+DOIS-JE CONDUIRE DIFFÉREMMENT POUR TIRER LE MEILLEUR PARTI DE LA TECHNOLOGIE HYBRIDE?
+Pas du tout. Parce que Toyota a automatisé le système Hybrid Synergy Drive, il optimisera son fonctionnement et minimisera la consommation de carburant pour chaque conducteur. Vous pouvez vous asseoir et profiter pleinement de la route!
+HYBRIDE BRANCHABLE
+La Prius Prime fonctionne essentiellement comme un véhicule hybride Toyota ordinaire, sauf qu’elle peut être branchée pour prolonger son autonomie électrique. Avec la Prime, vous pouvez rouler plus vite et plus loin en mode EV (tout électrique), comparativement aux modèles hybrides Toyota qui ne peuvent être branchés.
+FACILE À RECHARGER
+La Prius Prime offre les temps de recharge les plus rapides dans sa catégorie. Et vous n’avez pas besoin d’acheter d’équipement spécialisé pour la charger.
+
+Parcourez jusqu’à 40 km en mode 100 % électrique**
+Atteignez une vitesse de pointe de 135 km/h en mode électrique***
+Parcourez jusqu’à 1 035 km†† avec un seul plein d’essence et une charge complète
+5 heures 30 minutes††† de temps de charge avec une prise de courant domestique standard de 120V.
