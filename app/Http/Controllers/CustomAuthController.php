@@ -53,7 +53,7 @@ class CustomAuthController extends Controller
         $request->validate([
             'name' => 'required|min:2|max:20',
             'email'=> 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6|max:20',
+            'password' => 'required|min:2|max:30',
             'adresse' => 'required|min:6|max:70',
             'phone' => 'required|min:10|max:20',
             'birthday' => 'required|before:now|after:-13 years',
@@ -64,23 +64,28 @@ class CustomAuthController extends Controller
             'number' => $randomNumber
         ]);
 
+        
         $user = new User;
         $user->fill($request->all());
         $user->user_etudiant_id = $etudiant->id;
         $user->password = Hash::make($request->password);
-        $user->save();
-        $to_name = $request->name;
-        $to_email = $request->email;
-        $body="<a href='https://alexandrucandu.ca'>Cliquez ici pour confirmer</a>";
 
-        Mail::send('email.mail', $data = [
-            'name' => $to_name,
-            'body' => $body
-        ],
-            function($message) use ($to_name, $to_email){
-                $message->to($to_email, $to_name)->subject('Alexandru Candu Projet');
-            }
-        );
+        // dd($user);
+
+        $user->save();
+
+        // $to_name = $request->name;
+        // $to_email = $request->email;
+        // $body ="<a href='https://alexandrucandu.ca'>Cliquez ici pour confirmer</a>";
+
+        // Mail::send('email.mail', $data = [
+        //     'name' => $to_name,
+        //     'body' => $body
+        // ],
+        //     function($message) use ($to_name, $to_email){
+        //         $message->to($to_email, $to_name)->subject('Alexandru Candu Projet');
+        //     }
+        // );
 
         return redirect()->back()->withSuccess(trans('lang.msg_1'));
 

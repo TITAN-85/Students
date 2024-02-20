@@ -37,7 +37,7 @@ class EtudiantController extends Controller
     public function show(User $etudiant)
     {
 //        $test = User::select();
-       dd($etudiant);
+    //    dd($etudiant);
         return view("etudiant.show", ["etudiant" => $etudiant]);
     }
 
